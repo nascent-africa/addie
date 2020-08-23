@@ -83,6 +83,12 @@
                                     {{ __('Countries') }}
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{{ route('regions.index') }}">
+                                    <span data-feather="map"></span>
+                                    {{ __('Regions') }}
+                                </a>
+                            </li>
                             @can('superuser')
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="{{ route('users.index') }}">

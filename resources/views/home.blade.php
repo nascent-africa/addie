@@ -7,7 +7,33 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6 col-lg-3 col-xl-3">
+            <div class="col-md-6 col-lg-3 col-xl-3 mb-3">
+                <section class="panel panel-featured-left panel-featured-primary">
+                    <div class="panel-body">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col widget-summary-col-icon">
+                                <div class="summary-icon bg-primary">
+                                    <i class="fa fa-life-ring"></i>
+                                </div>
+                            </div>
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title">Users</h4>
+                                    <div class="info">
+                                        <strong class="amount">{{ $userCount }}</strong>
+                                        <span class="text-primary">Total</span>
+                                    </div>
+                                </div>
+                                <div class="summary-footer">
+                                    <a href="#" class="text-decoration-none text-muted text-uppercase">view all</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-md-6 col-lg-3 col-xl-3 mb-3">
                 <section class="panel panel-featured-left panel-featured-primary">
                     <div class="panel-body">
                         <div class="widget-summary">
@@ -33,7 +59,7 @@
                 </section>
             </div>
 
-            <div class="col-md-6 col-lg-3 col-xl-3">
+            <div class="col-md-6 col-lg-3 col-xl-3 mb-3">
                 <section class="panel panel-featured-left panel-featured-primary">
                     <div class="panel-body">
                         <div class="widget-summary">
@@ -44,20 +70,21 @@
                             </div>
                             <div class="widget-summary-col">
                                 <div class="summary">
-                                    <h4 class="title">Users</h4>
+                                    <h4 class="title">Regions</h4>
                                     <div class="info">
-                                        <strong class="amount">{{ $userCount }}</strong>
+                                        <strong class="amount">{{ $regionCount }}</strong>
                                         <span class="text-primary">Total</span>
                                     </div>
                                 </div>
                                 <div class="summary-footer">
-                                    <a href="#" class="text-decoration-none text-muted text-uppercase">view all</a>
+                                    <a href="{{ route('regions.index') }}" class="text-decoration-none text-muted text-uppercase">view all</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
+
         </div>
 
         @push('styles')

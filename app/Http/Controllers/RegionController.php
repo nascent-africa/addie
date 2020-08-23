@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Country;
+use App\Region;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Routing\Redirector;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
-class CountryController extends Controller
+class RegionController extends Controller
 {
     /**
      * CountryController constructor.
@@ -30,10 +29,10 @@ class CountryController extends Controller
      */
     public function index()
     {
-        $countries = Country::latest()->paginate(30);
+        $regions = Region::latest()->paginate(30);
 
-        return view('pages.country.index')->with([
-            'countries' => $countries
+        return view('pages.region.index')->with([
+            'regions' => $regions
         ]);
     }
 
@@ -44,7 +43,7 @@ class CountryController extends Controller
      */
     public function create()
     {
-        return view('pages.country.form');
+        return view('pages.region.form');
     }
 
     /**
@@ -55,44 +54,31 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->validate([
             'name'          => ['required', 'string', 'max:20', 'unique:countries'],
             'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
             'latitude'      => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
-            'iso_code'      => ['required', 'string', 'max:3'],
-            'calling_code'  => ['required', 'string', 'max:4']
+            'country_id'    => ['required']
         ]);
 
-        $country = Country::create($data);
+        $country = Region::create($data);
 
         flash()->success($country->name . ' was created successfully!');
 
-        return redirect()->route('countries.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param Country $country
-     * @return Application|Factory|View
-     */
-    public function show(Country $country)
-    {
-        return view('pages.country.show')->with([
-            'country' => $country
-        ]);
+        return redirect()->route('regions.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Country $country
+     * @param Region $region
      * @return Application|Factory|View
      */
-    public function edit(Country $country)
+    public function edit(Region $region)
     {
-        return view('pages.country.form')->with([
-            'country' => $country
+        return view('pages.region.form')->with([
+            'region' => $region
         ]);
     }
 
@@ -100,22 +86,23 @@ class CountryController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Country $country
-     * @return Application|RedirectResponse|Redirector
+     * @param Region $region
+     * @return RedirectResponse
      */
-    public function update(Request $request, Country $country)
+    public function update(Request $request, Region $region)
     {
         $data = $request->validate([
-            'name'          => ['required', 'string', 'max:20', Rule::unique('countries')->ignore($country->id)],
+            'name'          => ['required', 'string', 'max:20', Rule::unique('regions')->ignore($region->id)],
             'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
             'latitude'      => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
-            'iso_code'      => ['required', 'string', 'max:3'],
-            'calling_code'  => ['required', 'string', 'max:4']
+            'country_id'    => ['required']
         ]);
 
-        $country->update($data);
+        $data['country_id'] = (int) $data['country_id'];
 
-        flash()->success($country->name . ' was updated successfully!');
+        $region->update($data);
+
+        flash()->success($region->name . ' was updated successfully!');
 
         return back();
     }
@@ -123,18 +110,18 @@ class CountryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Country $country
-     * @return Application|RedirectResponse|Redirector
+     * @param Region $region
+     * @return RedirectResponse
      * @throws Exception
      */
-    public function destroy(Country $country)
+    public function destroy(Region $region)
     {
-        $model = clone $country;
+        $model = clone $region;
 
-        $country->delete();
+        $region->delete();
 
         flash()->success($model->name . ' deleted successfully!');
 
-        return redirect()->route('countries.index');
+        return redirect()->route('regions.index');
     }
 }

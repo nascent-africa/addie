@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Country;
+use App\Region;
 use App\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Renderable;
@@ -34,8 +35,9 @@ class HomeController extends Controller
     public function index()
     {
         return view('home')->with([
-            'countryCount' => Country::count(),
-            'userCount' => User::count()
+            'countryCount'  => Country::count(),
+            'userCount'     => User::count(),
+            'regionCount'   => Region::count()
         ]);
     }
 
