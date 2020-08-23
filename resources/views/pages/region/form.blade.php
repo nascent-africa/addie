@@ -4,6 +4,10 @@
     @component('pages.region.wrapper')
         @if (isset($region))
             @slot('actions')
+                <a class="btn btn-sm btn-outline-secondary ml-3" href="{{ route('regions.show', $region) }}">
+                    <span data-feather="eye"></span>
+                </a>
+
 
                 <x-delete-button
                     classes="btn btn-sm btn-outline-danger ml-3"

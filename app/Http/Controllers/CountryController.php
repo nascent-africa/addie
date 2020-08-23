@@ -67,7 +67,7 @@ class CountryController extends Controller
 
         flash()->success($country->name . ' was created successfully!');
 
-        return redirect()->route('countries.index');
+        return redirect()->route('countries.show', $country);
     }
 
     /**

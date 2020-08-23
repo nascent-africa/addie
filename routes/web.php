@@ -30,10 +30,10 @@ Route::post('/role/{role}/remove/{user}', 'RoleController@remove')->name('remove
 Route::post('/role/assign/{user}', 'RoleController@assign')->name('assign-role');
 
 // Country routes...
-Route::resource('countries', 'CountryController')->except(['show']);
+Route::resource('countries', 'CountryController');
 
 // Region routes...
-Route::resource('regions', 'RegionController')->except(['show']);
+Route::resource('regions', 'RegionController');
 
 // User routes...
 Route::resource('users', 'UserController')->only(['index', 'destroy']);

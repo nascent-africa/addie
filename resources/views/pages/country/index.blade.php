@@ -16,6 +16,7 @@
                     <th scope="col" style="width: 10%">{{ __('Updated') }}</th>
                     <th scope="col" style="width: 3%"></th>
                     <th scope="col" style="width: 3%"></th>
+                    <th scope="col" style="width: 3%"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,11 @@
                         <td>{{ $country->latitude }}</td>
                         <td>{{ $country->created_at->diffForHumans() }}</td>
                         <td>{{ $country->updated_at->diffForHumans() }}</td>
+                        <td>
+                            <a class="btn btn-light" href="{{ route('countries.show', $country) }}" title="View {{ $country->name }}">
+                                <span data-feather="eye"></span>
+                            </a>
+                        </td>
                         <td>
                             <a class="btn btn-light" href="{{ route('countries.edit', $country) }}" title="Edit {{ $country->name }}">
                                 <span data-feather="edit"></span>

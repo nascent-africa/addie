@@ -62,11 +62,24 @@ class RegionController extends Controller
             'country_id'    => ['required']
         ]);
 
-        $country = Region::create($data);
+        $region = Region::create($data);
 
-        flash()->success($country->name . ' was created successfully!');
+        flash()->success($region->name . ' was created successfully!');
 
-        return redirect()->route('regions.index');
+        return redirect()->route('regions.show', $region);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param Region $region
+     * @return Application|Factory|View
+     */
+    public function show(Region $region)
+    {
+        return view('pages.region.show')->with([
+            'region' => $region->load(['country'])
+        ]);
     }
 
     /**
