@@ -11,15 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c26b9271-4e1f-4c25-a80a-f8338920c379" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/country/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/region/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/country/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/country/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/country/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/country/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/region/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/region/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/region/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/region/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/CountrySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CountrySeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/RegionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RegionSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,14 +149,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/pages/country" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/pages" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/pages" />
       <recent name="$PROJECT_DIR$/resources/views/pages/country" />
       <recent name="$PROJECT_DIR$/resources/views/pages/region" />
-      <recent name="$PROJECT_DIR$/resources/views/pages" />
       <recent name="$PROJECT_DIR$/resources/sass" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
     </key>
@@ -178,7 +175,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598105057852</updated>
-      <workItem from="1598105059100" duration="51882000" />
+      <workItem from="1598105059100" duration="62263000" />
     </task>
     <task id="LOCAL-00001" summary="Initial install.">
       <created>1598188995671</created>
@@ -194,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598199021867</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add show to Country and Region.">
+      <created>1598201370917</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1598201370917</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,17 +219,18 @@
     <MESSAGE value="Initial install, add country feature." />
     <MESSAGE value="Initial install." />
     <MESSAGE value="Add region feature." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add region feature." />
+    <MESSAGE value="Add show to Country and Region." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add show to Country and Region." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="208" y="156" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1598197020764">
+    <state x="208" y="156" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1598228160386">
       <screen x="0" y="27" width="1600" height="821" />
     </state>
-    <state x="208" y="156" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/0.27.1600.821@0.27.1600.821" timestamp="1598197020764" />
-    <state x="533" y="195" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598192981032">
+    <state x="208" y="156" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/0.27.1600.821@0.27.1600.821" timestamp="1598228160386" />
+    <state x="533" y="195" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598223138792">
       <screen x="0" y="27" width="1600" height="821" />
     </state>
-    <state x="533" y="195" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1600.821@0.27.1600.821" timestamp="1598192981032" />
+    <state x="533" y="195" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1600.821@0.27.1600.821" timestamp="1598223138792" />
     <state x="466" y="157" width="657" height="568" key="NewPhpClassDialog" timestamp="1598110308406">
       <screen x="0" y="27" width="1600" height="821" />
     </state>
@@ -234,6 +239,10 @@
       <screen x="0" y="27" width="1600" height="821" />
     </state>
     <state x="595" y="363" width="399" height="156" key="NewPhpFileDialog/0.27.1600.821@0.27.1600.821" timestamp="1598108232661" />
+    <state x="0" y="173" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1598201416432">
+      <screen x="0" y="27" width="1600" height="821" />
+    </state>
+    <state x="0" y="173" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1600.821@0.27.1600.821" timestamp="1598201416432" />
     <state x="64" y="194" key="run.anything.popup" timestamp="1598107984128">
       <screen x="0" y="27" width="1600" height="821" />
     </state>

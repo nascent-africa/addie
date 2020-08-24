@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Region;
+use App\Province;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -12,10 +12,12 @@ use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
-class RegionController extends Controller
+class ProvinceController extends Controller
 {
     /**
-     * CountryController constructor.
+     * ProvinceController constructor.
+     *
+     * @return void
      */
     public function __construct()
     {
@@ -29,10 +31,10 @@ class RegionController extends Controller
      */
     public function index()
     {
-        $regions = Region::latest()->paginate(30);
+        $provinces = Province::latest()->paginate(30);
 
-        return view('pages.region.index')->with([
-            'regions' => $regions
+        return view('pages.province.index')->with([
+            'provinces' => $provinces
         ]);
     }
 
@@ -43,7 +45,7 @@ class RegionController extends Controller
      */
     public function create()
     {
-        return view('pages.region.form');
+        return view('pages.province.form');
     }
 
     /**
@@ -54,50 +56,51 @@ class RegionController extends Controller
      */
     public function store(Request $request)
     {
-
         $data = $request->validate([
             'name'          => ['required', 'string', 'max:20', 'unique:countries'],
-            'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
-            'latitude'      => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
-            'country_id'    => ['required']
+            'longitude'     => ['nullable', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
+            'latitude'      => ['nullable', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
+            'country_id'    => ['required'],
+            'region_id'     => ['required']
         ]);
 
         $data['country_id'] = (int) $data['country_id'];
+        $data['region_id'] = (int) $data['region_id'];
 
-        $region = Region::create($data);
+        $province = Province::create($data);
 
-        flash()->success($region->name . ' was created successfully!');
+        flash()->success($province->name . ' was created successfully!');
 
-        return redirect()->route('regions.show', $region);
+        return redirect()->route('provinces.show', $province);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Region $region
+     * @param Province $province
      * @return Application|Factory|View
      */
-    public function show(Region $region)
+    public function show(Province $province)
     {
-        $region->load(['country']);
+        $province->load(['country', 'region']);
 
-        return view('pages.region.show')->with([
-            'region' => $region->load(['country'])
+        return view('pages.province.show')->with([
+            'province' => $province->load(['country'])
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Region $region
+     * @param Province $province
      * @return Application|Factory|View
      */
-    public function edit(Region $region)
+    public function edit(Province $province)
     {
-        $region->load(['country']);
+        $province->load(['country', 'region']);
 
-        return view('pages.region.form')->with([
-            'region' => $region
+        return view('pages.province.form')->with([
+            'province' => $province
         ]);
     }
 
@@ -105,25 +108,27 @@ class RegionController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Region $region
+     * @param Province $province
      * @return RedirectResponse
      */
-    public function update(Request $request, Region $region)
+    public function update(Request $request, Province $province)
     {
-        $region->load(['country']);
+        $province->load(['country', 'region']);
 
         $data = $request->validate([
-            'name'          => ['required', 'string', 'max:20', Rule::unique('regions')->ignore($region->id)],
+            'name'          => ['required', 'string', 'max:20', Rule::unique('regions')->ignore($province->id)],
             'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
             'latitude'      => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
-            'country_id'    => ['required']
+            'country_id'    => ['required'],
+            'region_id'     => ['required']
         ]);
 
         $data['country_id'] = (int) $data['country_id'];
+        $data['region_id'] = (int) $data['region_id'];
 
-        $region->update($data);
+        $province->update($data);
 
-        flash()->success($region->name . ' was updated successfully!');
+        flash()->success($province->name . ' was updated successfully!');
 
         return back();
     }
@@ -131,18 +136,18 @@ class RegionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Region $region
+     * @param Province $province
      * @return RedirectResponse
      * @throws Exception
      */
-    public function destroy(Region $region)
+    public function destroy(Province $province)
     {
-        $model = clone $region;
+        $model = clone $province;
 
-        $region->delete();
+        $province->delete();
 
         flash()->success($model->name . ' deleted successfully!');
 
-        return redirect()->route('regions.index');
+        return redirect()->route('provinces.index');
     }
 }
