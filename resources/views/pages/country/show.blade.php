@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    @component('pages.region.wrapper')
+    @component('pages.country.wrapper')
         @if (isset($country))
             @slot('actions')
-                <a class="btn btn-sm btn-outline-secondary ml-3" href="{{ route('regions.edit', $country) }}">
+                <a class="btn btn-sm btn-outline-secondary ml-3" href="{{ route('countries.edit', $country) }}">
                     <span data-feather="edit"></span>
                 </a>
 
                 <x-delete-button
                     classes="btn btn-sm btn-outline-danger ml-3"
                     name="{{ $country->name }}"
-                                 url="{{ route('regions.destroy', $country) }}"
+                                 url="{{ route('countries.destroy', $country) }}"
                                  id="{{ $country->slug }}"></x-delete-button>
             @endslot
         @endif
