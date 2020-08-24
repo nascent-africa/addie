@@ -3,8 +3,10 @@
 namespace App;
 
 use App\Contracts\HasSlug;
+use App\Support\Helpers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Cache;
 
 class Country extends Model
 {
@@ -47,5 +49,19 @@ class Country extends Model
     public function cities()
     {
         return $this->hasMany(City::class);
+    }
+
+    /**
+     * Retrieve the model for a bound value.
+     *
+     * @param  mixed  $value
+     * @param  string|null  $field
+     * @return Country|null
+     */
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return Cache::remember('country:'.$value, Helpers::CACHE_TIME, function () use($value) {
+            return $this->where('slug', $value)->firstOrFail();
+        });
     }
 }

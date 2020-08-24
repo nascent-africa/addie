@@ -3,8 +3,10 @@
 namespace App;
 
 use App\Contracts\HasSlug;
+use App\Support\Helpers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Cache;
 
 class Village extends Model
 {
@@ -61,11 +63,16 @@ class Village extends Model
     }
 
     /**
-     * Get the city this village is in
-     * @return BelongsTo
+     * Retrieve the model for a bound value.
+     *
+     * @param  mixed  $value
+     * @param  string|null  $field
+     * @return Province|null
      */
-    public function city()
+    public function resolveRouteBinding($value, $field = null)
     {
-        return $this->belongsTo(City::class);
+        return Cache::remember('village:'.$value, Helpers::CACHE_TIME, function () use($value) {
+            return $this->where('slug', $value)->firstOrFail();
+        });
     }
 }

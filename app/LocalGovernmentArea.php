@@ -3,8 +3,10 @@
 namespace App;
 
 use App\Contracts\HasSlug;
+use App\Support\Helpers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Cache;
 
 class LocalGovernmentArea extends Model
 {
@@ -48,5 +50,19 @@ class LocalGovernmentArea extends Model
     public function province()
     {
         return $this->belongsTo(Province::class);
+    }
+
+    /**
+     * Retrieve the model for a bound value.
+     *
+     * @param  mixed  $value
+     * @param  string|null  $field
+     * @return LocalGovernmentArea|null
+     */
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return Cache::remember('local-government-area:'.$value, Helpers::CACHE_TIME, function () use($value) {
+            return $this->where('slug', $value)->firstOrFail();
+        });
     }
 }

@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
@@ -63,6 +64,9 @@ class InstallCommand extends Command
                 '--class' => 'DatabaseSeeder'
             ]);
         }
+
+        $this->info('Flushing cache...');
+        Cache::flush();
 
         $this->info('All done!');
     }
