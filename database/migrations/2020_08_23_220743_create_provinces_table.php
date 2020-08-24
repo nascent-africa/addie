@@ -15,16 +15,16 @@ class CreateProvincesTable extends Migration
     {
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
-            $table->string('name', 60)->unique();
+            $table->string('slug')->unique();
+            $table->string('name', 60);
             $table->float('latitude', 10, 6)->nullable();
             $table->float('longitude', 10, 6)->nullable();
             $table->foreignId('country_id')
                 ->constrained()
                 ->onDelete('cascade');
             $table->foreignId('region_id')
-                ->constrained()
-                ->onDelete('cascade');
+                ->nullable()
+                ->constrained();
             $table->softDeletes();
             $table->timestamps();
         });

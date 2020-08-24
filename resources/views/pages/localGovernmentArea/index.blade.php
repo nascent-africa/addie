@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @component('pages.province.wrapper')
+    @component('pages.localGovernmentArea.wrapper')
         <div class="table-responsive">
             <table class="table table-hover table-striped table-bordered">
                 <thead class="table-dark">
@@ -18,28 +18,28 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($provinces as $province)
+                @foreach($localGovernmentAreas as $localGovernmentArea)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $province->name }}</td>
-                        <td>{{ $province->longitude }}</td>
-                        <td>{{ $province->latitude }}</td>
-                        <td>{{ $province->created_at->diffForHumans() }}</td>
-                        <td>{{ $province->country->name }}</td>
+                        <td>{{ $localGovernmentArea->name }}</td>
+                        <td>{{ $localGovernmentArea->longitude }}</td>
+                        <td>{{ $localGovernmentArea->latitude }}</td>
+                        <td>{{ $localGovernmentArea->created_at->diffForHumans() }}</td>
+                        <td>{{ $localGovernmentArea->country->name }}</td>
                         <td>
-                            <a class="btn btn-light" href="{{ route('provinces.show', $province) }}" title="View {{ $province->name }}">
+                            <a class="btn btn-light" href="{{ route('local_government_areas.show', $localGovernmentArea) }}" title="View {{ $localGovernmentArea->name }}">
                                 <span data-feather="eye"></span>
                             </a>
                         </td>
                         <td>
-                            <a class="btn btn-light" href="{{ route('provinces.edit', $province) }}" title="Edit {{ $province->name }}">
+                            <a class="btn btn-light" href="{{ route('local_government_areas.edit', $localGovernmentArea) }}" title="Edit {{ $localGovernmentArea->name }}">
                                 <span data-feather="edit"></span>
                             </a>
                         </td>
                         <td>
-                            <x-delete-button name="{{ $province->name }}"
-                                             url="{{ route('provinces.destroy', $province) }}"
-                                             id="{{ $province->slug }}"></x-delete-button>
+                            <x-delete-button name="{{ $localGovernmentArea->name }}"
+                                             url="{{ route('local_government_areas.destroy', $localGovernmentArea) }}"
+                                             id="{{ $localGovernmentArea->slug }}"></x-delete-button>
                         </td>
                     </tr>
                 @endforeach
@@ -47,6 +47,6 @@
             </table>
         </div>
 
-        {{ $provinces->links() }}
+        {{ $localGovernmentAreas->links() }}
     @endcomponent
 @endsection

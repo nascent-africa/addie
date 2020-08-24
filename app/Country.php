@@ -28,4 +28,24 @@ class Country extends Model
     {
         return $this->hasMany(Region::class);
     }
+
+    /**
+     * Get this country's provinces
+     *
+     * @return HasMany
+     */
+    public function provinces()
+    {
+        return $this->hasMany(Province::class);
+    }
+
+    /**
+     * Get this country's cities
+     *
+     * @return HasMany
+     */
+    public function cities()
+    {
+        return $this->hasMany(City::class);
+    }
 }

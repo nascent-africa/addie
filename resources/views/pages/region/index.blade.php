@@ -11,7 +11,7 @@
                     <th scope="col" style="width: 10%">{{ __('Longitude') }}</th>
                     <th scope="col" style="width: 10%">{{ __('Latitude') }}</th>
                     <th scope="col" style="width: 10%">{{ __('Added') }}</th>
-                    <th scope="col" style="width: 10%">{{ __('Updated') }}</th>
+                    <th scope="col" style="width: 15%">{{ __('Country') }}</th>
                     <th scope="col" style="width: 3%"></th>
                     <th scope="col" style="width: 3%"></th>
                     <th scope="col" style="width: 3%"></th>
@@ -25,7 +25,7 @@
                         <td>{{ $region->longitude }}</td>
                         <td>{{ $region->latitude }}</td>
                         <td>{{ $region->created_at->diffForHumans() }}</td>
-                        <td>{{ $region->updated_at->diffForHumans() }}</td>
+                        <td>{{ $region->country->name }}</td>
                         <td>
                             <a class="btn btn-light" href="{{ route('regions.show', $region) }}" title="View {{ $region->name }}">
                                 <span data-feather="eye"></span>

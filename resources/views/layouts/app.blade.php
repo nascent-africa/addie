@@ -92,7 +92,20 @@
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="{{ route('provinces.index') }}">
                                     <span data-feather="map"></span>
-                                    {{ __('Provinces') }}
+                                    {{ __('States / Provinces') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{{ route('local_government_areas.index') }}">
+                                    <span data-feather="map"></span>
+                                    {{ __('Local Government Area') }}
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{{ route('cities.index') }}">
+                                    <span data-feather="map"></span>
+                                    {{ __('Cities') }}
                                 </a>
                             </li>
 

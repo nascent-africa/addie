@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @component('pages.province.wrapper')
+    @component('pages.city.wrapper')
         <div class="table-responsive">
             <table class="table table-hover table-striped table-bordered">
                 <thead class="table-dark">
@@ -18,28 +18,28 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($provinces as $province)
+                @foreach($cities as $city)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $province->name }}</td>
-                        <td>{{ $province->longitude }}</td>
-                        <td>{{ $province->latitude }}</td>
-                        <td>{{ $province->created_at->diffForHumans() }}</td>
-                        <td>{{ $province->country->name }}</td>
+                        <td>{{ $city->name }}</td>
+                        <td>{{ $city->longitude }}</td>
+                        <td>{{ $city->latitude }}</td>
+                        <td>{{ $city->created_at->diffForHumans() }}</td>
+                        <td>{{ $city->country->name }}</td>
                         <td>
-                            <a class="btn btn-light" href="{{ route('provinces.show', $province) }}" title="View {{ $province->name }}">
+                            <a class="btn btn-light" href="{{ route('cities.show', $city) }}" title="View {{ $city->name }}">
                                 <span data-feather="eye"></span>
                             </a>
                         </td>
                         <td>
-                            <a class="btn btn-light" href="{{ route('provinces.edit', $province) }}" title="Edit {{ $province->name }}">
+                            <a class="btn btn-light" href="{{ route('cities.edit', $city) }}" title="Edit {{ $city->name }}">
                                 <span data-feather="edit"></span>
                             </a>
                         </td>
                         <td>
-                            <x-delete-button name="{{ $province->name }}"
-                                             url="{{ route('provinces.destroy', $province) }}"
-                                             id="{{ $province->slug }}"></x-delete-button>
+                            <x-delete-button name="{{ $city->name }}"
+                                             url="{{ route('cities.destroy', $city) }}"
+                                             id="{{ $city->slug }}"></x-delete-button>
                         </td>
                     </tr>
                 @endforeach
@@ -47,6 +47,6 @@
             </table>
         </div>
 
-        {{ $provinces->links() }}
+        {{ $cities->links() }}
     @endcomponent
 @endsection

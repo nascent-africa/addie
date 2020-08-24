@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Region::class, function (Faker $faker) {
     return [
-        'name' => $faker->unique()->state,
+        'name' => $faker->state,
         'longitude' => $faker->longitude,
         'latitude' => $faker->latitude,
         'country_id' => \App\Country::inRandomOrder()->first()->id

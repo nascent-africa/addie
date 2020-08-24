@@ -5,6 +5,7 @@ namespace App;
 use App\Contracts\HasSlug;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Region extends Model
 {
@@ -27,5 +28,25 @@ class Region extends Model
     public function country()
     {
         return $this->belongsTo(Country::class);
+    }
+
+    /**
+     * Get this country's provinces
+     *
+     * @return HasMany
+     */
+    public function provinces()
+    {
+        return $this->hasMany(Province::class);
+    }
+
+    /**
+     * Get this country's cities
+     *
+     * @return HasMany
+     */
+    public function cities()
+    {
+        return $this->hasMany(City::class);
     }
 }
