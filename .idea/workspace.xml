@@ -13,22 +13,13 @@
     <list default="true" id="c26b9271-4e1f-4c25-a80a-f8338920c379" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/City.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Contracts/HasSlug.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contracts/HasSlug.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/HasSlug.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Concerns/HasSlug.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Country.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LocalGovernmentAreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LocalGovernmentAreaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProvinceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProvinceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VillageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VillageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/LocalGovernmentArea.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/LocalGovernmentArea.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Province.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Province.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Region.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Region.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Village.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Village.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/permission.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +183,7 @@
       <option name="presentableId" value="Default" />
       <updated>1598105057852</updated>
       <workItem from="1598105059100" duration="86863000" />
-      <workItem from="1598305866592" duration="3881000" />
+      <workItem from="1598305866592" duration="4567000" />
     </task>
     <task id="LOCAL-00001" summary="Initial install.">
       <created>1598188995671</created>
@@ -271,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598292068877</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add multilingual support.">
+      <created>1598310006211</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1598310006211</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +301,8 @@
     <MESSAGE value="Add caching." />
     <MESSAGE value="Add caching.se" />
     <MESSAGE value="Add translations to models." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add translations to models." />
+    <MESSAGE value="Add multilingual support." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add multilingual support." />
   </component>
   <component name="WindowStateProjectService">
     <state x="750" y="102" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598290448387">

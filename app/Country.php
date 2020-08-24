@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Contracts\HasSlug;
+use App\Concerns\HasSlug;
 use App\Support\Helpers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;

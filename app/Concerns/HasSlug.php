@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Contracts;
+namespace App\Concerns;
 
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\Sluggable\HasSlug as SlugTrait;
