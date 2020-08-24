@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Country;
+use App\Support\Helpers;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -10,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -73,11 +75,15 @@ class CountryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Country $country
+     * @param string $slug
      * @return Application|Factory|View
      */
-    public function show(Country $country)
+    public function show($slug)
     {
+        $country = Cache::remember('country:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
+            return Country::whereSlug($slug)->firstOrfail();
+        });
+
         return view('pages.country.show')->with([
             'country' => $country
         ]);
@@ -86,11 +92,15 @@ class CountryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Country $country
+     * @param string $slug
      * @return Application|Factory|View
      */
-    public function edit(Country $country)
+    public function edit($slug)
     {
+        $country = Cache::remember('country:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
+            return Country::whereSlug($slug)->firstOrfail();
+        });
+
         return view('pages.country.form')->with([
             'country' => $country
         ]);
@@ -124,7 +134,7 @@ class CountryController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Country $country
-     * @return Application|RedirectResponse|Redirector
+     * @return RedirectResponse
      * @throws Exception
      */
     public function destroy(Country $country)

@@ -49,3 +49,6 @@ Route::resource('cities', 'CityController');
 
 // User routes...
 Route::resource('users', 'UserController')->only(['index', 'destroy']);
+
+// Locale route...
+Route::post('/locale', 'LanguageController')->name('locale');

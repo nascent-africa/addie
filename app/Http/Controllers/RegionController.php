@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Region;
+use App\Support\Helpers;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -54,15 +56,12 @@ class RegionController extends Controller
      */
     public function store(Request $request)
     {
-
         $data = $request->validate([
             'name'          => ['required', 'string', 'max:20', 'unique:countries'],
             'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
             'latitude'      => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
             'country_id'    => ['required']
         ]);
-
-        $data['country_id'] = (int) $data['country_id'];
 
         $region = Region::create($data);
 
@@ -74,12 +73,14 @@ class RegionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Region $region
+     * @param $slug
      * @return Application|Factory|View
      */
-    public function show(Region $region)
+    public function show($slug)
     {
-        $region->load(['country']);
+        $region = Cache::remember('region:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
+            return Region::whereSlug($slug)->with(['country'])->firstOrfail();
+        });
 
         return view('pages.region.show')->with([
             'region' => $region->load(['country'])
@@ -89,12 +90,14 @@ class RegionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Region $region
+     * @param string $slug
      * @return Application|Factory|View
      */
-    public function edit(Region $region)
+    public function edit($slug)
     {
-        $region->load(['country']);
+        $region = Cache::remember('region:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
+            return Region::whereSlug($slug)->with(['country'])->firstOrfail();
+        });
 
         return view('pages.region.form')->with([
             'region' => $region
@@ -110,8 +113,6 @@ class RegionController extends Controller
      */
     public function update(Request $request, Region $region)
     {
-        $region->load(['country']);
-
         $data = $request->validate([
             'name'          => ['required', 'string', 'max:20', Rule::unique('regions')->ignore($region->id)],
             'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],

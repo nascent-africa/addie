@@ -23,6 +23,18 @@ class Village extends Model
     ];
 
     /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'country_id' => 'integer',
+        'region_id' => 'integer',
+        'province_id' => 'integer',
+        'city_id' => 'integer'
+    ];
+
+    /**
      * Get this region's country.
      *
      * @return BelongsTo
@@ -72,7 +84,7 @@ class Village extends Model
     public function resolveRouteBinding($value, $field = null)
     {
         return Cache::remember('village:'.$value, Helpers::CACHE_TIME, function () use($value) {
-            return $this->where('slug', $value)->firstOrFail();
+            return $this->querySlug($value)->firstOrFail();
         });
     }
 }

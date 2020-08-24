@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\LocalGovernmentArea;
+use App\Support\Helpers;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
 class LocalGovernmentAreaController extends Controller
@@ -75,12 +77,14 @@ class LocalGovernmentAreaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param LocalGovernmentArea $localGovernmentArea
+     * @param string $slug
      * @return Application|Factory|View
      */
-    public function show(LocalGovernmentArea $localGovernmentArea)
+    public function show($slug)
     {
-        $localGovernmentArea->load(['country', 'region']);
+        $localGovernmentArea = Cache::remember('local-government-area:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
+            return LocalGovernmentArea::whereSlug($slug)->with(['country', 'region', 'province'])->firstOrfail();
+        });
 
         return view('pages.localGovernmentArea.show')->with([
             'localGovernmentArea' => $localGovernmentArea->load(['country'])
@@ -90,12 +94,14 @@ class LocalGovernmentAreaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param LocalGovernmentArea $localGovernmentArea
+     * @param string $slug
      * @return Application|Factory|View
      */
-    public function edit(LocalGovernmentArea $localGovernmentArea)
+    public function edit($slug)
     {
-        $localGovernmentArea->load(['country', 'region', 'province']);
+        $localGovernmentArea = Cache::remember('local-government-area:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
+            return LocalGovernmentArea::whereSlug($slug)->with(['country', 'region', 'province'])->firstOrfail();
+        });
 
         return view('pages.localGovernmentArea.form')->with([
             'localGovernmentArea' => $localGovernmentArea
@@ -111,8 +117,6 @@ class LocalGovernmentAreaController extends Controller
      */
     public function update(Request $request, LocalGovernmentArea $localGovernmentArea)
     {
-        $localGovernmentArea->load(['country', 'region']);
-
         $data = $request->validate([
             'name'          => ['required', 'string', 'max:20'],
             'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],

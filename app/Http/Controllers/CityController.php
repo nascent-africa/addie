@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Support\Helpers;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
 class CityController extends Controller
@@ -75,11 +77,15 @@ class CityController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param City $city
+     * @param string $slug
      * @return Application|Factory|View
      */
-    public function show(City $city)
+    public function show($slug)
     {
+        $city = Cache::remember('city:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
+            return City::whereSlug($slug)->with(['country', 'region'])->firstOrfail();
+        });
+
         $city->load(['country', 'region']);
 
         return view('pages.city.show')->with([
@@ -90,12 +96,14 @@ class CityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param City $city
+     * @param string $slug
      * @return Application|Factory|View
      */
-    public function edit(City $city)
+    public function edit($slug)
     {
-        $city->load(['country', 'region', 'province']);
+        $city = Cache::remember('city:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
+            return City::whereSlug($slug)->with(['country', 'region', 'province'])->firstOrfail();
+        });
 
         return view('pages.city.form')->with([
             'city' => $city
@@ -111,8 +119,6 @@ class CityController extends Controller
      */
     public function update(Request $request, City $city)
     {
-        $city->load(['country', 'region']);
-
         $data = $request->validate([
             'name'          => ['required', 'string', 'max:20'],
             'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],

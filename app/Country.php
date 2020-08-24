@@ -61,7 +61,7 @@ class Country extends Model
     public function resolveRouteBinding($value, $field = null)
     {
         return Cache::remember('country:'.$value, Helpers::CACHE_TIME, function () use($value) {
-            return $this->where('slug', $value)->firstOrFail();
+            return $this->querySlug($value)->firstOrFail();
         });
     }
 }

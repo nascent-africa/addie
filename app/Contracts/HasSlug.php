@@ -3,6 +3,7 @@
 
 namespace App\Contracts;
 
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\Sluggable\HasSlug as SlugTrait;
 use Spatie\Sluggable\HasTranslatableSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -33,5 +34,16 @@ trait HasSlug
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param  Builder  $query
+     * @return Builder
+     */
+    public function scopeWhereSlug($query, $value)
+    {
+        return $query->where("slug->".app()->getLocale(), $value);
     }
 }

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\Helpers;
 use App\Village;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
 class VillageController extends Controller
@@ -77,12 +79,14 @@ class VillageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Village $village
+     * @param string $slug
      * @return Application|Factory|View
      */
-    public function show(Village $village)
+    public function show($slug)
     {
-        $village->load(['country', 'region']);
+        $village = Cache::remember('village:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
+            return Village::whereSlug($slug)->with(['country', 'region', 'province'])->firstOrfail();
+        });
 
         return view('pages.village.show')->with([
             'village' => $village->load(['country'])
@@ -92,12 +96,14 @@ class VillageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Village $village
+     * @param string $slug
      * @return Application|Factory|View
      */
-    public function edit(Village $village)
+    public function edit($slug)
     {
-        $village->load(['country', 'region', 'province']);
+        $village = Cache::remember('village:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
+            return Village::whereSlug($slug)->with(['country', 'region', 'province'])->firstOrfail();
+        });
 
         return view('pages.village.form')->with([
             'village' => $village
@@ -113,8 +119,6 @@ class VillageController extends Controller
      */
     public function update(Request $request, Village $village)
     {
-        $village->load(['country', 'region']);
-
         $data = $request->validate([
             'name'          => ['required', 'string', 'max:20'],
             'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],

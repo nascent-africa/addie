@@ -136,6 +136,37 @@
                             @endguest
                         </x-menu-block>
 
+
+                        <x-menu-block name="{{ __('Language') }}">
+                            <li class="nav-item">
+                                <a class="nav-link @if(app()->getLocale() === 'en') disabled active @endif" aria-current="page" href="{{ route('locale') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('locale-form-en').submit();">
+                                    <span data-feather="plus-square"></span>
+                                    {{ __('English') }}
+                                </a>
+
+                                <form id="locale-form-en" action="{{ route('locale') }}" method="POST" style="display: none;">
+                                    @csrf
+                                    <input name="locale" value="en" type="hidden">
+                                </form>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link @if(app()->getLocale() === 'fr') disabled active @endif" aria-current="page" href="{{ route('locale') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('locale-form-fr').submit();">
+                                    <span data-feather="plus-square"></span>
+                                    {{ __('French') }}
+                                </a>
+
+                                <form id="locale-form-fr" action="{{ route('locale') }}" method="POST" style="display: none;">
+                                    @csrf
+                                    <input name="locale" value="fr" type="hidden">
+                                </form>
+                            </li>
+                        </x-menu-block>
+
                         @yield('tools')
                     </div>
                 </nav>

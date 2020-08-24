@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Province;
+use App\Support\Helpers;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -77,12 +79,14 @@ class ProvinceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Province $province
+     * @param string $slug
      * @return Application|Factory|View
      */
-    public function show(Province $province)
+    public function show($slug)
     {
-        $province->load(['country', 'region']);
+        $province = Cache::remember('province:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
+            return Province::whereSlug($slug)->with(['country', 'region'])->firstOrfail();
+        });
 
         return view('pages.province.show')->with([
             'province' => $province->load(['country'])
@@ -92,12 +96,14 @@ class ProvinceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Province $province
+     * @param string $slug
      * @return Application|Factory|View
      */
-    public function edit(Province $province)
+    public function edit($slug)
     {
-        $province->load(['country', 'region']);
+        $province = Cache::remember('province:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
+            return Province::whereSlug($slug)->with(['country', 'region'])->firstOrfail();
+        });
 
         return view('pages.province.form')->with([
             'province' => $province
@@ -113,8 +119,6 @@ class ProvinceController extends Controller
      */
     public function update(Request $request, Province $province)
     {
-        $province->load(['country', 'region']);
-
         $data = $request->validate([
             'name'          => ['required', 'string', 'max:20', Rule::unique('regions')->ignore($province->id)],
             'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],

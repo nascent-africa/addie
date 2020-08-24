@@ -23,6 +23,15 @@ class Region extends Model
     ];
 
     /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'country_id' => 'integer',
+    ];
+
+    /**
      * Get this region's country.
      *
      * @return BelongsTo
@@ -62,7 +71,7 @@ class Region extends Model
     public function resolveRouteBinding($value, $field = null)
     {
         return Cache::remember('region:'.$value, Helpers::CACHE_TIME, function () use($value) {
-            return $this->where('slug', $value)->firstOrFail();
+            return $this->querySlug($value)->firstOrFail();
         });
     }
 }

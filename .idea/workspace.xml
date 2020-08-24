@@ -11,33 +11,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c26b9271-4e1f-4c25-a80a-f8338920c379" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/address-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/address-api.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/City.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Contracts/HasSlug.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contracts/HasSlug.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Country.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LocalGovernmentAreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LocalGovernmentAreaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProvinceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProvinceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VillageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VillageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/LocalGovernmentArea.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/LocalGovernmentArea.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Province.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Province.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Region.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Region.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Village.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Village.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CityFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CityFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CountryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CountryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/LocalGovernmentAreaFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LocalGovernmentAreaFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ProvinceFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ProvinceFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/RegionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/RegionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/VillageFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/VillageFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_22_140705_create_countries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_22_140705_create_countries_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_23_133738_create_regions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_23_133738_create_regions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_23_220743_create_provinces_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_23_220743_create_provinces_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_24_004925_create_local_government_areas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_24_004925_create_local_government_areas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_24_004926_create_cities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_24_004926_create_cities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_24_145132_create_villages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_24_145132_create_villages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/country-select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/country-select.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -193,7 +191,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598105057852</updated>
-      <workItem from="1598105059100" duration="82387000" />
+      <workItem from="1598105059100" duration="86863000" />
+      <workItem from="1598305866592" duration="3881000" />
     </task>
     <task id="LOCAL-00001" summary="Initial install.">
       <created>1598188995671</created>
@@ -265,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598288070923</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add translations to models.">
+      <created>1598292068877</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1598292068877</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,6 +287,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial install, add country feature." />
@@ -295,7 +302,8 @@
     <MESSAGE value="Fix error" />
     <MESSAGE value="Add caching." />
     <MESSAGE value="Add caching.se" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add caching.se" />
+    <MESSAGE value="Add translations to models." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add translations to models." />
   </component>
   <component name="WindowStateProjectService">
     <state x="750" y="102" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598290448387">
@@ -310,14 +318,15 @@
       <screen x="0" y="27" width="1600" height="821" />
     </state>
     <state x="124" y="27" width="542" height="821" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.27.1600.821@0.27.1600.821" timestamp="1598279166001" />
-    <state x="533" y="195" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598287441685">
+    <state x="533" y="190" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598308371741">
+      <screen x="0" y="21" width="1600" height="827" />
+    </state>
+    <state x="533" y="190" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.21.1600.827@0.21.1600.827" timestamp="1598308371741" />
+    <state x="533" y="195" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1600.821@0.27.1600.821" timestamp="1598296222925" />
+    <state x="466" y="157" width="667" height="568" key="NewPhpClassDialog" timestamp="1598293328302">
       <screen x="0" y="27" width="1600" height="821" />
     </state>
-    <state x="533" y="195" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1600.821@0.27.1600.821" timestamp="1598287441685" />
-    <state x="466" y="157" width="657" height="568" key="NewPhpClassDialog" timestamp="1598286814868">
-      <screen x="0" y="27" width="1600" height="821" />
-    </state>
-    <state x="466" y="157" width="657" height="568" key="NewPhpClassDialog/0.27.1600.821@0.27.1600.821" timestamp="1598286814868" />
+    <state x="466" y="157" width="667" height="568" key="NewPhpClassDialog/0.27.1600.821@0.27.1600.821" timestamp="1598293328302" />
     <state x="595" y="363" width="399" height="156" key="NewPhpFileDialog" timestamp="1598108232661">
       <screen x="0" y="27" width="1600" height="821" />
     </state>
