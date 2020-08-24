@@ -4,11 +4,15 @@
 namespace App\Contracts;
 
 use Spatie\Sluggable\HasSlug as SlugTrait;
+use Spatie\Sluggable\HasTranslatableSlug;
 use Spatie\Sluggable\SlugOptions;
+use Spatie\Translatable\HasTranslations;
 
 trait HasSlug
 {
-    use SlugTrait;
+    use HasTranslations, HasTranslatableSlug;
+
+    public $translatable = ['name', 'slug'];
 
     /**
      * Get the options for generating the slug.

@@ -14,16 +14,23 @@
       <change beforePath="$PROJECT_DIR$/.idea/address-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/address-api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/City.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/InstallCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/InstallCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Country.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/LocalGovernmentArea.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/LocalGovernmentArea.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Province.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Province.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Region.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Region.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Village.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Village.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/HasSlug.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contracts/HasSlug.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/CityFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CityFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/CountryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CountryFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/LocalGovernmentAreaFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LocalGovernmentAreaFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ProvinceFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ProvinceFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/RegionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/RegionFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/VillageFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/VillageFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_22_140705_create_countries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_22_140705_create_countries_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_23_133738_create_regions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_23_133738_create_regions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_23_220743_create_provinces_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_23_220743_create_provinces_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_24_004925_create_local_government_areas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_24_004925_create_local_government_areas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_24_004926_create_cities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_24_004926_create_cities_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_24_145132_create_villages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_24_145132_create_villages_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/country-select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/country-select.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +155,7 @@
       <path value="$PROJECT_DIR$/vendor/laravel/scout" />
       <path value="$PROJECT_DIR$/vendor/teamtnt/tntsearch" />
       <path value="$PROJECT_DIR$/vendor/teamtnt/laravel-scout-tntsearch-driver" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-translatable" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gSPXCkGOaYIzglhk96AyTi1yNQ" />
@@ -156,6 +164,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/pages" />
@@ -184,7 +193,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598105057852</updated>
-      <workItem from="1598105059100" duration="79273000" />
+      <workItem from="1598105059100" duration="82387000" />
     </task>
     <task id="LOCAL-00001" summary="Initial install.">
       <created>1598188995671</created>
@@ -249,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598285470009</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add caching.se">
+      <created>1598288070923</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1598288070923</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,9 +293,15 @@
     <MESSAGE value="Fix error." />
     <MESSAGE value="Update home view." />
     <MESSAGE value="Fix error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix error" />
+    <MESSAGE value="Add caching." />
+    <MESSAGE value="Add caching.se" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add caching.se" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="750" y="102" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598290448387">
+      <screen x="0" y="27" width="1600" height="821" />
+    </state>
+    <state x="750" y="102" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1600.821@0.27.1600.821" timestamp="1598290448387" />
     <state x="208" y="156" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1598284212070">
       <screen x="0" y="27" width="1600" height="821" />
     </state>

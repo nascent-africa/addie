@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Village::class, function (Faker $faker) {
     return [
-        'name'          => $faker->country,
+        'name'          => ['en' => $faker->streetName, 'fr' => $faker->streetName],
         'longitude'     => $faker->longitude,
         'latitude'      => $faker->latitude,
         'country_id'    => \App\Country::inRandomOrder()->first()->id,

@@ -15,8 +15,8 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->unique();
-            $table->string('name', 60);
+            $table->json('slug');
+            $table->json('name');
             $table->float('latitude', 10, 6)->nullable();
             $table->float('longitude', 10, 6)->nullable();
             $table->foreignId('country_id')
