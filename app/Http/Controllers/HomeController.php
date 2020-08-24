@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
 use App\Country;
+use App\LocalGovernmentArea;
+use App\Province;
 use App\Region;
 use App\User;
+use App\Village;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\Factory;
@@ -37,7 +41,11 @@ class HomeController extends Controller
         return view('home')->with([
             'countryCount'  => Country::count(),
             'userCount'     => User::count(),
-            'regionCount'   => Region::count()
+            'regionCount'   => Region::count(),
+            'localGovernmentAreaCount'   => LocalGovernmentArea::count(),
+            'provinceCount'   => Province::count(),
+            'cityCount'   => City::count(),
+            'villageCount'   => Village::count(),
         ]);
     }
 
