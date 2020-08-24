@@ -11,17 +11,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c26b9271-4e1f-4c25-a80a-f8338920c379" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/address-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/address-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Country.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Province.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Province.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Region.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Region.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ProvinceFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ProvinceFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/RegionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/RegionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_22_140705_create_countries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_22_140705_create_countries_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_23_133738_create_regions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_23_133738_create_regions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_23_220743_create_provinces_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_23_220743_create_provinces_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LocalGovernmentAreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LocalGovernmentAreaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProvinceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProvinceController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/city/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/city/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/country/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/country/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/localGovernmentArea/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/localGovernmentArea/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/localGovernmentArea/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/localGovernmentArea/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/localGovernmentArea/wrapper.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/localGovernmentArea/wrapper.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/province/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/province/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/region/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/region/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -146,6 +148,7 @@
       <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
       <path value="$PROJECT_DIR$/vendor/laracasts/flash" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/laravel/scout" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gSPXCkGOaYIzglhk96AyTi1yNQ" />
@@ -182,7 +185,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598105057852</updated>
-      <workItem from="1598105059100" duration="72009000" />
+      <workItem from="1598105059100" duration="75759000" />
     </task>
     <task id="LOCAL-00001" summary="Initial install.">
       <created>1598188995671</created>
@@ -212,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598229841788</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add Local government area and city features.">
+      <created>1598279962607</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1598279962607</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,21 +245,22 @@
     <MESSAGE value="Add region feature." />
     <MESSAGE value="Add show to Country and Region." />
     <MESSAGE value="Add province feature." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add province feature." />
+    <MESSAGE value="Add Local government area and city features." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Local government area and city features." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="208" y="156" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1598279217462">
+    <state x="208" y="156" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1598284212070">
       <screen x="0" y="27" width="1600" height="821" />
     </state>
-    <state x="208" y="156" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/0.27.1600.821@0.27.1600.821" timestamp="1598279217462" />
+    <state x="208" y="156" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/0.27.1600.821@0.27.1600.821" timestamp="1598284212070" />
     <state x="124" y="27" width="542" height="821" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598279166001">
       <screen x="0" y="27" width="1600" height="821" />
     </state>
     <state x="124" y="27" width="542" height="821" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.27.1600.821@0.27.1600.821" timestamp="1598279166001" />
-    <state x="533" y="195" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598277336274">
+    <state x="533" y="195" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598281726354">
       <screen x="0" y="27" width="1600" height="821" />
     </state>
-    <state x="533" y="195" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1600.821@0.27.1600.821" timestamp="1598277336274" />
+    <state x="533" y="195" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1600.821@0.27.1600.821" timestamp="1598281726354" />
     <state x="466" y="157" width="657" height="568" key="NewPhpClassDialog" timestamp="1598110308406">
       <screen x="0" y="27" width="1600" height="821" />
     </state>
@@ -258,10 +269,10 @@
       <screen x="0" y="27" width="1600" height="821" />
     </state>
     <state x="595" y="363" width="399" height="156" key="NewPhpFileDialog/0.27.1600.821@0.27.1600.821" timestamp="1598108232661" />
-    <state x="0" y="173" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1598201416432">
+    <state x="0" y="173" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1598279972259">
       <screen x="0" y="27" width="1600" height="821" />
     </state>
-    <state x="0" y="173" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1600.821@0.27.1600.821" timestamp="1598201416432" />
+    <state x="0" y="173" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1600.821@0.27.1600.821" timestamp="1598279972259" />
     <state x="64" y="194" key="run.anything.popup" timestamp="1598107984128">
       <screen x="0" y="27" width="1600" height="821" />
     </state>

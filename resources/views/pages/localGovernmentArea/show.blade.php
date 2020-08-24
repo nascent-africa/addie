@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    @component('pages.city.wrapper')
+    @component('pages.localGovernmentArea.wrapper')
         @if (isset($city))
             @slot('actions')
-                <a class="btn btn-sm btn-outline-secondary ml-3" href="{{ route('cities.edit', $city) }}">
+                <a class="btn btn-sm btn-outline-secondary ml-3" href="{{ route('local_government_areas.edit', $city) }}">
                     <span data-feather="edit"></span>
                 </a>
 
                 <x-delete-button
                     classes="btn btn-sm btn-outline-danger ml-3"
                     name="{{ $city->name }}"
-                                 url="{{ route('cities.destroy', $city) }}"
+                                 url="{{ route('local_government_areas.destroy', $city) }}"
                                  id="{{ $city->slug }}"></x-delete-button>
             @endslot
         @endif

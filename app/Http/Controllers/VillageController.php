@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\LocalGovernmentArea;
+use App\Village;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -10,10 +10,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class LocalGovernmentAreaController extends Controller
+class VillageController extends Controller
 {
     /**
-     * LocalGovernmentAreaController constructor.
+     * VillageController constructor.
      */
     public function __construct()
     {
@@ -27,10 +27,10 @@ class LocalGovernmentAreaController extends Controller
      */
     public function index()
     {
-        $localGovernmentAreas = LocalGovernmentArea::with(['country'])->latest()->paginate(30);
+        $villages = Village::with(['country'])->latest()->paginate(30);
 
-        return view('pages.localGovernmentArea.index')->with([
-            'localGovernmentAreas' => $localGovernmentAreas
+        return view('pages.village.index')->with([
+            'villages' => $villages
         ]);
     }
 
@@ -41,7 +41,7 @@ class LocalGovernmentAreaController extends Controller
      */
     public function create()
     {
-        return view('pages.localGovernmentArea.form');
+        return view('pages.village.form');
     }
 
     /**
@@ -58,47 +58,49 @@ class LocalGovernmentAreaController extends Controller
             'latitude'      => ['nullable', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
             'country_id'    => ['nullable', 'exists:countries,id'],
             'region_id'     => ['nullable', 'exists:regions,id'],
-            'province_id'   => ['nullable', 'exists:provinces,id']
+            'province_id'   => ['nullable', 'exists:provinces,id'],
+            'city_id'       => ['nullable', 'exists:cities,id']
         ]);
 
         $data['country_id'] = (int) $data['country_id'];
         $data['region_id'] = (int) $data['region_id'] ?? null;
         $data['province_id'] = (int) $data['province_id'] ?? null;
+        $data['city_id'] = (int) $data['city_id'] ?? null;
 
-        $city = LocalGovernmentArea::create($data);
+        $village = Village::create($data);
 
-        flash()->success($city->name . ' was created successfully!');
+        flash()->success($village->name . ' was created successfully!');
 
-        return redirect()->route('localGovernmentAreas.show', $city);
+        return redirect()->route('villages.show', $village);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param LocalGovernmentArea $localGovernmentArea
+     * @param Village $village
      * @return Application|Factory|View
      */
-    public function show(LocalGovernmentArea $localGovernmentArea)
+    public function show(Village $village)
     {
-        $localGovernmentArea->load(['country', 'region']);
+        $village->load(['country', 'region']);
 
-        return view('pages.localGovernmentArea.show')->with([
-            'localGovernmentArea' => $localGovernmentArea->load(['country'])
+        return view('pages.village.show')->with([
+            'village' => $village->load(['country'])
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param LocalGovernmentArea $localGovernmentArea
+     * @param Village $village
      * @return Application|Factory|View
      */
-    public function edit(LocalGovernmentArea $localGovernmentArea)
+    public function edit(Village $village)
     {
-        $localGovernmentArea->load(['country', 'region', 'province']);
+        $village->load(['country', 'region', 'province']);
 
-        return view('pages.localGovernmentArea.form')->with([
-            'localGovernmentArea' => $localGovernmentArea
+        return view('pages.village.form')->with([
+            'village' => $village
         ]);
     }
 
@@ -106,12 +108,12 @@ class LocalGovernmentAreaController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param LocalGovernmentArea $localGovernmentArea
+     * @param Village $village
      * @return RedirectResponse
      */
-    public function update(Request $request, LocalGovernmentArea $localGovernmentArea)
+    public function update(Request $request, Village $village)
     {
-        $localGovernmentArea->load(['country', 'region']);
+        $village->load(['country', 'region']);
 
         $data = $request->validate([
             'name'          => ['required', 'string', 'max:20'],
@@ -119,16 +121,18 @@ class LocalGovernmentAreaController extends Controller
             'latitude'      => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
             'country_id'    => ['nullable', 'exists:countries,id'],
             'region_id'     => ['nullable', 'exists:regions,id'],
-            'province_id'   => ['nullable', 'exists:provinces,id']
+            'province_id'   => ['nullable', 'exists:provinces,id'],
+            'city_id'       => ['nullable', 'exists:cities,id']
         ]);
 
         $data['country_id'] = (int) $data['country_id'];
         $data['region_id'] = (int) $data['region_id'] ?? null;
         $data['province_id'] = (int) $data['province_id'] ?? null;
+        $data['city_id'] = (int) $data['city_id'] ?? null;
 
-        $localGovernmentArea->update($data);
+        $village->update($data);
 
-        flash()->success($localGovernmentArea->name . ' was updated successfully!');
+        flash()->success($village->name . ' was updated successfully!');
 
         return back();
     }
@@ -136,18 +140,18 @@ class LocalGovernmentAreaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param LocalGovernmentArea $localGovernmentArea
+     * @param Village $village
      * @return RedirectResponse
      * @throws Exception
      */
-    public function destroy(LocalGovernmentArea $localGovernmentArea)
+    public function destroy(Village $village)
     {
-        $model = clone $localGovernmentArea;
+        $model = clone $village;
 
-        $localGovernmentArea->delete();
+        $village->delete();
 
         flash()->success($model->name . ' deleted successfully!');
 
-        return redirect()->route('localGovernmentAreas.index');
+        return redirect()->route('villages.index');
     }
 }

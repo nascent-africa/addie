@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @component('pages.city.wrapper')
+    @component('pages.village.wrapper')
         <div class="table-responsive">
             <table class="table table-hover table-striped table-bordered">
                 <thead class="table-dark">
@@ -20,29 +20,29 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($cities as $city)
+                @foreach($villages as $village)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $city->name }}</td>
-                        <td>{{ $city->longitude }}</td>
-                        <td>{{ $city->latitude }}</td>
-                        <td>{{ $city->created_at->diffForHumans() }}</td>
-                        <td>{{ $city->country->name }}</td>
+                        <td>{{ $village->name }}</td>
+                        <td>{{ $village->longitude }}</td>
+                        <td>{{ $village->latitude }}</td>
+                        <td>{{ $village->created_at->diffForHumans() }}</td>
+                        <td>{{ $village->country->name }}</td>
                         <td>
-                            <a class="btn btn-light" href="{{ route('cities.show', $city) }}" title="View {{ $city->name }}">
+                            <a class="btn btn-light" href="{{ route('villages.show', $village) }}" title="View {{ $village->name }}">
                                 <span data-feather="eye"></span>
                             </a>
                         </td>
                         <td>
-                            <a class="btn btn-light" href="{{ route('cities.edit', $city) }}" title="Edit {{ $city->name }}">
+                            <a class="btn btn-light" href="{{ route('villages.edit', $village) }}" title="Edit {{ $village->name }}">
                                 <span data-feather="edit"></span>
                             </a>
                         </td>
                         @can('superuser')
                         <td>
-                            <x-delete-button name="{{ $city->name }}"
-                                             url="{{ route('cities.destroy', $city) }}"
-                                             id="{{ $city->slug }}"></x-delete-button>
+                            <x-delete-button name="{{ $village->name }}"
+                                             url="{{ route('villages.destroy', $village) }}"
+                                             id="{{ $village->slug }}"></x-delete-button>
                         </td>
                         @endcan
                     </tr>
@@ -51,6 +51,6 @@
             </table>
         </div>
 
-        {{ $cities->links() }}
+        {{ $villages->links() }}
     @endcomponent
 @endsection

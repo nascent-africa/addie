@@ -16,7 +16,9 @@
                     <th scope="col" style="width: 10%">{{ __('Updated') }}</th>
                     <th scope="col" style="width: 3%"></th>
                     <th scope="col" style="width: 3%"></th>
+                    @can('superuser')
                     <th scope="col" style="width: 3%"></th>
+                    @endcan
                 </tr>
                 </thead>
                 <tbody>
@@ -40,11 +42,13 @@
                                 <span data-feather="edit"></span>
                             </a>
                         </td>
+                        @can('superuser')
                         <td>
                             <x-delete-button :name="$country->name"
                                              :url="route('countries.destroy', $country)"
                                              :id="$country->slug"></x-delete-button>
                         </td>
+                        @endcan
                     </tr>
                 @endforeach
                 </tbody>

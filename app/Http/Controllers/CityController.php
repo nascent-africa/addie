@@ -62,7 +62,8 @@ class CityController extends Controller
         ]);
 
         $data['country_id'] = (int) $data['country_id'];
-        $data['region_id'] = (int) $data['region_id'];
+        $data['region_id'] = (int) $data['region_id'] ?? null;
+        $data['province_id'] = (int) $data['province_id'] ?? null;
 
         $city = City::create($data);
 
@@ -122,7 +123,8 @@ class CityController extends Controller
         ]);
 
         $data['country_id'] = (int) $data['country_id'];
-        $data['region_id'] = (int) $data['region_id'];
+        $data['region_id'] = (int) $data['region_id'] ?? null;
+        $data['province_id'] = (int) $data['province_id'] ?? null;
 
         $city->update($data);
 

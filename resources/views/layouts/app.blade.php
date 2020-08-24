@@ -109,6 +109,13 @@
                                 </a>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{{ route('villages.index') }}">
+                                    <span data-feather="map"></span>
+                                    {{ __('Villages') }}
+                                </a>
+                            </li>
+
                             @can('superuser')
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="{{ route('users.index') }}">

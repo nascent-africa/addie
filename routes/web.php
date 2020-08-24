@@ -42,6 +42,9 @@ Route::resource('provinces', 'ProvinceController');
 Route::resource('local_government_areas', 'LocalGovernmentAreaController');
 
 // City routes...
+Route::resource('villages', 'VillageController');
+
+// City routes...
 Route::resource('cities', 'CityController');
 
 // User routes...

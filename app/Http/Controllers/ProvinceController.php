@@ -65,7 +65,7 @@ class ProvinceController extends Controller
         ]);
 
         $data['country_id'] = (int) $data['country_id'];
-        $data['region_id'] = (int) $data['region_id'];
+        $data['region_id'] = (int) $data['region_id'] ?? null;
 
         $province = Province::create($data);
 
@@ -124,7 +124,7 @@ class ProvinceController extends Controller
         ]);
 
         $data['country_id'] = (int) $data['country_id'];
-        $data['region_id'] = (int) $data['region_id'];
+        $data['region_id'] = (int) $data['region_id'] ?? null;
 
         $province->update($data);
 
