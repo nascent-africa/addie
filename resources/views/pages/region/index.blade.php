@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('search')
+    <x-search-input></x-search-input>
+@endsection
+
 @section('content')
     @component('pages.region.wrapper')
         <div class="table-responsive">

@@ -2,15 +2,30 @@
 
 namespace App;
 
+use App\Concerns\HasSearch;
 use App\Concerns\HasSlug;
 use App\Support\Helpers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Cache;
+use Laravel\Scout\Searchable;
 
 class LocalGovernmentArea extends Model
 {
-    use HasSlug;
+    use HasSlug, Searchable;
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+        ];
+    }
 
     /**
      * The attributes that are mass assignable.

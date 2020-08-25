@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Region;
+use App\Repositories\RegionRepository;
 use App\Support\Helpers;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
@@ -17,11 +18,19 @@ use Illuminate\View\View;
 class RegionController extends Controller
 {
     /**
-     * CountryController constructor.
+     * @var RegionRepository $repository
      */
-    public function __construct()
+    protected $repository;
+
+    /**
+     * CountryController constructor.
+     *
+     * @param RegionRepository $repository
+     */
+    public function __construct(RegionRepository $repository)
     {
         $this->middleware(['auth', 'can:administrator'])->except('index');
+        $this->repository = $repository;
     }
 
     /**
@@ -31,7 +40,7 @@ class RegionController extends Controller
      */
     public function index()
     {
-        $regions = Region::latest()->paginate(30);
+        $regions = $this->repository->all();
 
         return view('pages.region.index')->with([
             'regions' => $regions
@@ -119,8 +128,6 @@ class RegionController extends Controller
             'latitude'      => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
             'country_id'    => ['required']
         ]);
-
-        $data['country_id'] = (int) $data['country_id'];
 
         $region->update($data);
 

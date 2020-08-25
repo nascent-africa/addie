@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\VillageRepository;
 use App\Support\Helpers;
 use App\Village;
 use Exception;
@@ -15,11 +16,19 @@ use Illuminate\View\View;
 class VillageController extends Controller
 {
     /**
-     * VillageController constructor.
+     * @var VillageRepository $repository
      */
-    public function __construct()
+    protected $repository;
+
+    /**
+     * VillageController constructor.
+     *
+     * @param VillageRepository $repository
+     */
+    public function __construct(VillageRepository $repository)
     {
         $this->middleware(['auth', 'can:administrator'])->except('index');
+        $this->repository = $repository;
     }
 
     /**
@@ -29,7 +38,7 @@ class VillageController extends Controller
      */
     public function index()
     {
-        $villages = Village::with(['country'])->latest()->paginate(30);
+        $villages = $this->repository->all();
 
         return view('pages.village.index')->with([
             'villages' => $villages
@@ -63,11 +72,6 @@ class VillageController extends Controller
             'province_id'   => ['nullable', 'exists:provinces,id'],
             'city_id'       => ['nullable', 'exists:cities,id']
         ]);
-
-        $data['country_id'] = (int) $data['country_id'];
-        $data['region_id'] = (int) $data['region_id'] ?? null;
-        $data['province_id'] = (int) $data['province_id'] ?? null;
-        $data['city_id'] = (int) $data['city_id'] ?? null;
 
         $village = Village::create($data);
 
@@ -128,11 +132,6 @@ class VillageController extends Controller
             'province_id'   => ['nullable', 'exists:provinces,id'],
             'city_id'       => ['nullable', 'exists:cities,id']
         ]);
-
-        $data['country_id'] = (int) $data['country_id'];
-        $data['region_id'] = (int) $data['region_id'] ?? null;
-        $data['province_id'] = (int) $data['province_id'] ?? null;
-        $data['city_id'] = (int) $data['city_id'] ?? null;
 
         $village->update($data);
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\UserRepository;
 use App\User;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
@@ -13,10 +14,18 @@ use Illuminate\View\View;
 class UserController extends Controller
 {
     /**
-     * UserController constructor.
+     * @var UserRepository $repository
      */
-    public function __construct()
+    protected $repository;
+
+    /**
+     * UserController constructor.
+     *
+     * @param UserRepository $repository
+     */
+    public function __construct(UserRepository $repository)
     {
+        $this->repository = $repository;
         $this->middleware(['auth', 'can:superuser']);
     }
 
@@ -27,7 +36,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->paginate(30);
+        $users = $this->repository->all();
 
         return view('pages.user.index')->with([
             'users' => $users

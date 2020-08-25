@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Province;
+use App\Repositories\ProvinceRepository;
 use App\Support\Helpers;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
@@ -17,13 +18,19 @@ use Illuminate\View\View;
 class ProvinceController extends Controller
 {
     /**
+     * @var ProvinceRepository $repository
+     */
+    protected $repository;
+
+    /**
      * ProvinceController constructor.
      *
-     * @return void
+     * @param ProvinceRepository $repository
      */
-    public function __construct()
+    public function __construct(ProvinceRepository $repository)
     {
         $this->middleware(['auth', 'can:administrator'])->except('index');
+        $this->repository = $repository;
     }
 
     /**
@@ -33,7 +40,7 @@ class ProvinceController extends Controller
      */
     public function index()
     {
-        $provinces = Province::latest()->paginate(30);
+        $provinces = $this->repository->all();
 
         return view('pages.province.index')->with([
             'provinces' => $provinces
@@ -65,9 +72,6 @@ class ProvinceController extends Controller
             'country_id'    => ['required'],
             'region_id'     => ['required']
         ]);
-
-        $data['country_id'] = (int) $data['country_id'];
-        $data['region_id'] = (int) $data['region_id'] ?? null;
 
         $province = Province::create($data);
 
@@ -126,9 +130,6 @@ class ProvinceController extends Controller
             'country_id'    => ['required'],
             'region_id'     => ['required']
         ]);
-
-        $data['country_id'] = (int) $data['country_id'];
-        $data['region_id'] = (int) $data['region_id'] ?? null;
 
         $province->update($data);
 

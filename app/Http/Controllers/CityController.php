@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Repositories\CityRepository;
 use App\Support\Helpers;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
@@ -15,11 +16,19 @@ use Illuminate\View\View;
 class CityController extends Controller
 {
     /**
-     * CityController constructor.
+     * @var CityRepository $repository
      */
-    public function __construct()
+    protected $repository;
+
+    /**
+     * CityController constructor.
+     *
+     * @param CityRepository $repository
+     */
+    public function __construct(CityRepository $repository)
     {
         $this->middleware(['auth', 'can:administrator'])->except('index');
+        $this->repository = $repository;
     }
 
     /**
@@ -29,7 +38,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        $cities = City::with(['country'])->latest()->paginate(30);
+        $cities = $this->repository->all();
 
         return view('pages.city.index')->with([
             'cities' => $cities
@@ -63,10 +72,6 @@ class CityController extends Controller
             'province_id'   => ['nullable', 'exists:provinces,id']
         ]);
 
-        $data['country_id'] = (int) $data['country_id'];
-        $data['region_id'] = (int) $data['region_id'] ?? null;
-        $data['province_id'] = (int) $data['province_id'] ?? null;
-
         $city = City::create($data);
 
         flash()->success($city->name . ' was created successfully!');
@@ -85,8 +90,6 @@ class CityController extends Controller
         $city = Cache::remember('city:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
             return City::whereSlug($slug)->with(['country', 'region'])->firstOrfail();
         });
-
-        $city->load(['country', 'region']);
 
         return view('pages.city.show')->with([
             'city' => $city->load(['country'])
@@ -127,10 +130,6 @@ class CityController extends Controller
             'region_id'     => ['nullable', 'exists:regions,id'],
             'province_id'   => ['nullable', 'exists:provinces,id']
         ]);
-
-        $data['country_id'] = (int) $data['country_id'];
-        $data['region_id'] = (int) $data['region_id'] ?? null;
-        $data['province_id'] = (int) $data['province_id'] ?? null;
 
         $city->update($data);
 

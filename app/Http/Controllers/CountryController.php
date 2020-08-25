@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Country;
+use App\Repositories\CountryRepository;
 use App\Support\Helpers;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
@@ -18,11 +19,19 @@ use Illuminate\View\View;
 class CountryController extends Controller
 {
     /**
-     * CountryController constructor.
+     * @var CountryRepository $repository
      */
-    public function __construct()
+    protected $repository;
+
+    /**
+     * CountryController constructor.
+     *
+     * @param CountryRepository $repository
+     */
+    public function __construct(CountryRepository $repository)
     {
         $this->middleware(['auth', 'can:administrator'])->except('index');
+        $this->repository = $repository;
     }
 
     /**
@@ -32,7 +41,7 @@ class CountryController extends Controller
      */
     public function index()
     {
-        $countries = Country::latest()->paginate(30);
+        $countries = $this->repository->all();
 
         return view('pages.country.index')->with([
             'countries' => $countries

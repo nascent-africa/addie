@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\LocalGovernmentArea;
+use App\Repositories\LocalGovernmentAreaRepository;
 use App\Support\Helpers;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
@@ -15,11 +16,19 @@ use Illuminate\View\View;
 class LocalGovernmentAreaController extends Controller
 {
     /**
-     * LocalGovernmentAreaController constructor.
+     * @var LocalGovernmentAreaRepository $repository
      */
-    public function __construct()
+    protected $repository;
+
+    /**
+     * LocalGovernmentAreaController constructor.
+     *
+     * @param LocalGovernmentAreaRepository $repository
+     */
+    public function __construct(LocalGovernmentAreaRepository $repository)
     {
         $this->middleware(['auth', 'can:administrator'])->except('index');
+        $this->repository = $repository;
     }
 
     /**
@@ -29,7 +38,7 @@ class LocalGovernmentAreaController extends Controller
      */
     public function index()
     {
-        $localGovernmentAreas = LocalGovernmentArea::with(['country'])->latest()->paginate(30);
+        $localGovernmentAreas = $this->repository->all();
 
         return view('pages.localGovernmentArea.index')->with([
             'localGovernmentAreas' => $localGovernmentAreas
@@ -62,10 +71,6 @@ class LocalGovernmentAreaController extends Controller
             'region_id'     => ['nullable', 'exists:regions,id'],
             'province_id'   => ['nullable', 'exists:provinces,id']
         ]);
-
-        $data['country_id'] = (int) $data['country_id'];
-        $data['region_id'] = (int) $data['region_id'] ?? null;
-        $data['province_id'] = (int) $data['province_id'] ?? null;
 
         $city = LocalGovernmentArea::create($data);
 
@@ -125,10 +130,6 @@ class LocalGovernmentAreaController extends Controller
             'region_id'     => ['nullable', 'exists:regions,id'],
             'province_id'   => ['nullable', 'exists:provinces,id']
         ]);
-
-        $data['country_id'] = (int) $data['country_id'];
-        $data['region_id'] = (int) $data['region_id'] ?? null;
-        $data['province_id'] = (int) $data['province_id'] ?? null;
 
         $localGovernmentArea->update($data);
 
