@@ -6,7 +6,7 @@ namespace App\Repositories;
 
 use App\Country;
 
-class CountryRepository extends BaseRepository
+class CountryRepository extends BaseRepository implements BaseRepositoryInterface
 {
     /**
      * @return mixed

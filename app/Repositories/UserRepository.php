@@ -6,7 +6,7 @@ namespace App\Repositories;
 
 use App\User;
 
-class UserRepository extends BaseRepository
+class UserRepository extends BaseRepository implements BaseRepositoryInterface
 {
     /**
      * @return mixed

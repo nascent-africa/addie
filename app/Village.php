@@ -50,7 +50,7 @@ class Village extends Model
     ];
 
     /**
-     * Get this region's country.
+     * Get this region of this village.
      *
      * @return BelongsTo
      */
@@ -60,7 +60,7 @@ class Village extends Model
     }
 
     /**
-     * Get the region for this province
+     * Get the region for this village
      *
      * @return BelongsTo
      */
@@ -70,7 +70,7 @@ class Village extends Model
     }
 
     /**
-     * Get the province of this city
+     * Get the province of this village
      *
      * @return BelongsTo
      */
@@ -80,13 +80,23 @@ class Village extends Model
     }
 
     /**
-     * Get the local government of this city.
+     * Get the local government of this village.
      *
      * @return BelongsTo
      */
     public function localGovernmentArea()
     {
         return $this->belongsTo(LocalGovernmentArea::class);
+    }
+
+    /**
+     * Get the city this village is in.
+     *
+     * @return BelongsTo
+     */
+    public function city()
+    {
+        return $this->belongsTo(City::class);
     }
 
     /**

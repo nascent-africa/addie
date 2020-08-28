@@ -66,6 +66,26 @@ class Country extends Model
     }
 
     /**
+     * Get the villages in this country
+     *
+     * @return HasMany
+     */
+    public function villages()
+    {
+        return $this->hasMany(Village::class);
+    }
+
+    /**
+     * Show local government areas in this country if any.
+     *
+     * @return HasMany
+     */
+    public function localGovernmentAreas()
+    {
+        return $this->hasMany(LocalGovernmentArea::class);
+    }
+
+    /**
      * Retrieve the model for a bound value.
      *
      * @param  mixed  $value

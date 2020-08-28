@@ -77,6 +77,26 @@ class Region extends Model
     }
 
     /**
+     * Show local government areas in this region if any.
+     *
+     * @return HasMany
+     */
+    public function localGovernmentAreas()
+    {
+        return $this->hasMany(LocalGovernmentArea::class);
+    }
+
+    /**
+     * Get the villages in this region
+     *
+     * @return HasMany
+     */
+    public function villages()
+    {
+        return $this->hasMany(Village::class);
+    }
+
+    /**
      * Retrieve the model for a bound value.
      *
      * @param  mixed  $value

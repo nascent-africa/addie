@@ -7,6 +7,7 @@ use App\Concerns\HasSlug;
 use App\Support\Helpers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Cache;
 use Laravel\Scout\Searchable;
 
@@ -76,6 +77,36 @@ class LocalGovernmentArea extends Model
     public function province()
     {
         return $this->belongsTo(Province::class);
+    }
+
+    /**
+     * Get this country's cities
+     *
+     * @return HasMany
+     */
+    public function cities()
+    {
+        return $this->hasMany(City::class);
+    }
+
+    /**
+     * Show local government areas in this region if any.
+     *
+     * @return HasMany
+     */
+    public function localGovernmentAreas()
+    {
+        return $this->hasMany(LocalGovernmentArea::class);
+    }
+
+    /**
+     * Get the villages in this region
+     *
+     * @return HasMany
+     */
+    public function villages()
+    {
+        return $this->hasMany(Village::class);
     }
 
     /**

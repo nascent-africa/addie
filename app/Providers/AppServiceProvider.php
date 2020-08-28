@@ -36,4 +36,9 @@ class AppServiceProvider extends ServiceProvider
         \App\City::observe(\App\Observers\CityObserver::class);
         \App\Village::observe(\App\Observers\VillageObserver::class);
     }
+
+    public function bindings()
+    {
+        $this->app->bind(\App\Repositories\BaseRepositoryInterface::class, \App\Repositories\BaseRepository::class);
+    }
 }

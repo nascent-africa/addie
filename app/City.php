@@ -7,6 +7,7 @@ use App\Concerns\HasSlug;
 use App\Support\Helpers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Cache;
 use Laravel\Scout\Searchable;
 
@@ -33,7 +34,7 @@ class City extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'longitude', 'latitude',
+        'name', 'longitude', 'latitude', 'local_government_area_id',
         'country_id', 'region_id', 'province_id'
     ];
 
@@ -86,6 +87,16 @@ class City extends Model
     public function localGovernmentArea()
     {
         return $this->belongsTo(LocalGovernmentArea::class);
+    }
+
+    /**
+     * Get the villages in this city
+     *
+     * @return HasMany
+     */
+    public function villages()
+    {
+        return $this->hasMany(Village::class);
     }
 
     /**

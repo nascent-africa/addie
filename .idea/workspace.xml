@@ -11,30 +11,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c26b9271-4e1f-4c25-a80a-f8338920c379" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/address-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/address-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/City.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Country.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LocalGovernmentAreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LocalGovernmentAreaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProvinceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProvinceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VillageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VillageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Country.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/LocalGovernmentArea.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/LocalGovernmentArea.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Province.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Province.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Region.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Region.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/BaseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BaseRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/CityRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/CityRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/CountryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/CountryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/LocalGovernmentAreaRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/LocalGovernmentAreaRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ProvinceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ProvinceRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/RegionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RegionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/VillageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/VillageRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Village.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Village.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/city/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/city/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/country/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/country/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/localGovernmentArea/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/localGovernmentArea/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/province/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/province/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/region/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/region/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/user/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/village/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/village/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/CountryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CountryFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/RegionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/RegionFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,12 +164,16 @@
       <path value="$PROJECT_DIR$/vendor/teamtnt/tntsearch" />
       <path value="$PROJECT_DIR$/vendor/teamtnt/laravel-scout-tntsearch-driver" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-translatable" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gSPXCkGOaYIzglhk96AyTi1yNQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
@@ -174,8 +182,14 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/pages" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="DEFAULT" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/routes/api" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Api/V1" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Api" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/pages" />
       <recent name="$PROJECT_DIR$/resources/views/pages/country" />
@@ -199,7 +213,9 @@
       <option name="presentableId" value="Default" />
       <updated>1598105057852</updated>
       <workItem from="1598105059100" duration="86863000" />
-      <workItem from="1598305866592" duration="17604000" />
+      <workItem from="1598305866592" duration="34588000" />
+      <workItem from="1598391527250" duration="41256000" />
+      <workItem from="1598573490198" duration="14097000" />
     </task>
     <task id="LOCAL-00001" summary="Initial install.">
       <created>1598188995671</created>
@@ -292,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598310555816</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add search feature. Do some refactoring.">
+      <created>1598323927970</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1598323927970</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,40 +349,46 @@
     <MESSAGE value="Add translations to models." />
     <MESSAGE value="Add multilingual support." />
     <MESSAGE value="Fix directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix directory" />
+    <MESSAGE value="Add search feature. Do some refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add search feature. Do some refactoring." />
   </component>
   <component name="WindowStateProjectService">
     <state x="750" y="102" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598290448387">
       <screen x="0" y="27" width="1600" height="821" />
     </state>
     <state x="750" y="102" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1600.821@0.27.1600.821" timestamp="1598290448387" />
-    <state x="208" y="151" width="412" height="652" key="#com.intellij.ide.util.MemberChooser" timestamp="1598322612370">
+    <state x="208" y="151" width="412" height="659" key="#com.intellij.ide.util.MemberChooser" timestamp="1598363173045">
       <screen x="0" y="21" width="1600" height="827" />
     </state>
-    <state x="208" y="151" width="412" height="652" key="#com.intellij.ide.util.MemberChooser/0.21.1600.827@0.21.1600.827" timestamp="1598322612370" />
+    <state x="208" y="151" width="412" height="659" key="#com.intellij.ide.util.MemberChooser/0.21.1600.827@0.21.1600.827" timestamp="1598363173045" />
     <state x="208" y="156" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/0.27.1600.821@0.27.1600.821" timestamp="1598284212070" />
-    <state x="124" y="21" width="504" height="580" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598321554382">
+    <state x="124" y="21" width="504" height="580" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598455867397">
       <screen x="0" y="21" width="1600" height="827" />
     </state>
-    <state x="124" y="21" width="504" height="580" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.21.1600.827@0.21.1600.827" timestamp="1598321554382" />
+    <state x="124" y="21" width="504" height="580" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.21.1600.827@0.21.1600.827" timestamp="1598455867397" />
     <state x="124" y="27" width="542" height="821" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.27.1600.821@0.27.1600.821" timestamp="1598279166001" />
-    <state x="533" y="190" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598322709998">
+    <state x="533" y="190" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598487044811">
       <screen x="0" y="21" width="1600" height="827" />
     </state>
-    <state x="533" y="190" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.21.1600.827@0.21.1600.827" timestamp="1598322709998" />
+    <state x="533" y="190" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.21.1600.827@0.21.1600.827" timestamp="1598487044811" />
     <state x="533" y="195" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1600.821@0.27.1600.821" timestamp="1598296222925" />
+    <state x="117" y="196" width="556" height="483" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#" timestamp="1598359290766">
+      <screen x="0" y="21" width="1600" height="827" />
+    </state>
+    <state x="117" y="196" width="556" height="483" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.21.1600.827@0.21.1600.827" timestamp="1598359290766" />
     <state width="263" height="500" key="HiddenNamespacesPopup" timestamp="1598312751735">
       <screen x="0" y="21" width="1600" height="827" />
     </state>
     <state width="263" height="500" key="HiddenNamespacesPopup/0.21.1600.827@0.21.1600.827" timestamp="1598312751735" />
-    <state x="466" y="152" width="681" height="589" key="NewPhpClassDialog" timestamp="1598322521198">
+    <state x="466" y="152" width="681" height="589" key="NewPhpClassDialog" timestamp="1598460652694">
       <screen x="0" y="21" width="1600" height="827" />
     </state>
-    <state x="466" y="152" width="681" height="589" key="NewPhpClassDialog/0.21.1600.827@0.21.1600.827" timestamp="1598322521198" />
+    <state x="466" y="152" width="681" height="589" key="NewPhpClassDialog/0.21.1600.827@0.21.1600.827" timestamp="1598460652694" />
     <state x="466" y="157" width="667" height="568" key="NewPhpClassDialog/0.27.1600.821@0.27.1600.821" timestamp="1598293328302" />
-    <state x="595" y="363" width="399" height="156" key="NewPhpFileDialog" timestamp="1598108232661">
-      <screen x="0" y="27" width="1600" height="821" />
+    <state x="595" y="359" width="399" height="156" key="NewPhpFileDialog" timestamp="1598324793436">
+      <screen x="0" y="21" width="1600" height="827" />
     </state>
+    <state x="595" y="359" key="NewPhpFileDialog/0.21.1600.827@0.21.1600.827" timestamp="1598324793436" />
     <state x="595" y="363" width="399" height="156" key="NewPhpFileDialog/0.27.1600.821@0.27.1600.821" timestamp="1598108232661" />
     <state x="0" y="173" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1598284506216">
       <screen x="0" y="27" width="1600" height="821" />
@@ -369,5 +398,9 @@
       <screen x="0" y="27" width="1600" height="821" />
     </state>
     <state x="64" y="194" key="run.anything.popup/0.27.1600.821@0.27.1600.821" timestamp="1598107984128" />
+    <state x="64" y="77" width="672" height="678" key="search.everywhere.popup" timestamp="1598363016575">
+      <screen x="0" y="21" width="1600" height="827" />
+    </state>
+    <state x="64" y="77" width="672" height="678" key="search.everywhere.popup/0.21.1600.827@0.21.1600.827" timestamp="1598363016575" />
   </component>
 </project>
