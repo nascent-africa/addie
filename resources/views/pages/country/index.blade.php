@@ -19,7 +19,9 @@
                     <th scope="col" style="width: 10%">{{ __('Added') }}</th>
                     <th scope="col" style="width: 10%">{{ __('Updated') }}</th>
                     <th scope="col" style="width: 3%"></th>
+                    @can('administrator')
                     <th scope="col" style="width: 3%"></th>
+                    @endcan
                     @can('superuser')
                     <th scope="col" style="width: 3%"></th>
                     @endcan
@@ -41,11 +43,13 @@
                                 <span data-feather="eye"></span>
                             </a>
                         </td>
+                        @can('administrator')
                         <td>
                             <a class="btn btn-light" href="{{ route('countries.edit', $country) }}" title="Edit {{ $country->name }}">
                                 <span data-feather="edit"></span>
                             </a>
                         </td>
+                        @endcan
                         @can('superuser')
                         <td>
                             <x-delete-button :name="$country->name"
