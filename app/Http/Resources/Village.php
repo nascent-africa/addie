@@ -18,6 +18,12 @@ class Village extends JsonResource
             'name'              => $this->name,
             'longitude'         => $this->longitude,
             'latitude'          => $this->latitude,
+            'country'           => new Country($this->whenLoaded('country')),
+            'region'            => new Region($this->whenLoaded('region')),
+            'province'         => new Province($this->whenLoaded('province')),
+            'state'            => new Province($this->whenLoaded('province')),
+            'local_government_area'            => new LocalGovernmentArea($this->whenLoaded('localGovernmentArea')),
+            'city'          => new City($this->whenLoaded('city')),
         ];
     }
 }

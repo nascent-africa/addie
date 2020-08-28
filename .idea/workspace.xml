@@ -11,34 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c26b9271-4e1f-4c25-a80a-f8338920c379" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/address-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/address-api.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/City.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Country.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Country.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/LocalGovernmentArea.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/LocalGovernmentArea.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Province.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Province.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Region.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Region.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/BaseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BaseRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/CityRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/CityRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/CountryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/CountryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/LocalGovernmentAreaRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/LocalGovernmentAreaRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ProvinceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ProvinceRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/RegionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RegionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/VillageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/VillageRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Village.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Village.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CountryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CountryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/RegionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/RegionFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/City.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/LocalGovernmentArea.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/LocalGovernmentArea.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Province.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Province.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Village.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Village.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +192,7 @@
       <workItem from="1598105059100" duration="86863000" />
       <workItem from="1598305866592" duration="34588000" />
       <workItem from="1598391527250" duration="41256000" />
-      <workItem from="1598573490198" duration="14097000" />
+      <workItem from="1598573490198" duration="15925000" />
     </task>
     <task id="LOCAL-00001" summary="Initial install.">
       <created>1598188995671</created>
@@ -315,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598323927970</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add version on of api.">
+      <created>1598630817997</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1598630817997</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +334,8 @@
     <MESSAGE value="Add multilingual support." />
     <MESSAGE value="Fix directory" />
     <MESSAGE value="Add search feature. Do some refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add search feature. Do some refactoring." />
+    <MESSAGE value="Add version on of api." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add version on of api." />
   </component>
   <component name="WindowStateProjectService">
     <state x="750" y="102" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598290448387">
