@@ -69,6 +69,13 @@
                                     {{ __('My Profile') }}
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{{ route('tokens') }}">
+                                    <span data-feather="plus-square"></span>
+                                    {{ __('My Tokens') }}
+                                </a>
+                            </li>
                         </x-menu-block>
                         @endauth
 

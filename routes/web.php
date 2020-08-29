@@ -29,6 +29,11 @@ Route::post('/profile/update-password', 'HomeController@changePassword');
 Route::post('/role/{role}/remove/{user}', 'RoleController@remove')->name('remove-role');
 Route::post('/role/assign/{user}', 'RoleController@assign')->name('assign-role');
 
+// Tokens routes...
+Route::get('/tokens', 'TokenController@index')->name('tokens');
+Route::post('/tokens', 'TokenController@create')->name('tokens');
+Route::delete('/tokens/{token}', 'TokenController@destroy')->name('tokens.destroy');
+
 // Country routes...
 Route::resource('countries', 'CountryController');
 
