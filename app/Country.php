@@ -22,7 +22,7 @@ class Country extends Model implements CacheableModelInterface
      *
      * @var array
      */
-    protected $touches = ['regions', 'provinces', 'localGovernmentAreas', 'cities', 'villages'];
+//    protected $touches = ['regions', 'provinces', 'localGovernmentAreas', 'cities', 'villages'];
 
     /**
      * The attributes that are mass assignable.

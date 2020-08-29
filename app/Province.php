@@ -21,7 +21,7 @@ class Province extends Model
      *
      * @var array
      */
-    protected $touches = ['country', 'region', 'localGovernmentAreas', 'cities', 'villages'];
+    protected $touches = ['country', 'region'];
 
     /**
      * The attributes that are mass assignable.

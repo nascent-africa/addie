@@ -22,7 +22,7 @@ class City extends Model implements CacheableModelInterface
      *
      * @var array
      */
-    protected $touches = ['country', 'region', 'province', 'localGovernmentArea', 'villages'];
+    protected $touches = ['country', 'region', 'province', 'localGovernmentArea'];
 
     /**
      * Get the indexable data array for the model.

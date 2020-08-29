@@ -22,7 +22,7 @@ class LocalGovernmentArea extends Model implements CacheableModelInterface
      *
      * @var array
      */
-    protected $touches = ['country', 'region', 'province', 'cities', 'villages'];
+    protected $touches = ['country', 'region', 'province'];
 
     /**
      * Get the indexable data array for the model.
