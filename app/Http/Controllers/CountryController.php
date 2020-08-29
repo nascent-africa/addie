@@ -30,7 +30,7 @@ class CountryController extends Controller
      */
     public function __construct(CountryRepository $repository)
     {
-        $this->middleware(['auth', 'can:administrator'])->except('index');
+        $this->middleware(['auth', 'can:administrator'])->except(['index', 'show']);
         $this->repository = $repository;
     }
 

@@ -29,7 +29,7 @@ class ProvinceController extends Controller
      */
     public function __construct(ProvinceRepository $repository)
     {
-        $this->middleware(['auth', 'can:administrator'])->except('index');
+        $this->middleware(['auth', 'can:administrator'])->except(['index', 'show']);
         $this->repository = $repository;
     }
 

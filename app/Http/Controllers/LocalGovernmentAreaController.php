@@ -27,7 +27,7 @@ class LocalGovernmentAreaController extends Controller
      */
     public function __construct(LocalGovernmentAreaRepository $repository)
     {
-        $this->middleware(['auth', 'can:administrator'])->except('index');
+        $this->middleware(['auth', 'can:administrator'])->except(['index', 'show']);
         $this->repository = $repository;
     }
 

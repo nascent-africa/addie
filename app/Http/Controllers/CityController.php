@@ -27,7 +27,7 @@ class CityController extends Controller
      */
     public function __construct(CityRepository $repository)
     {
-        $this->middleware(['auth', 'can:administrator'])->except('index');
+        $this->middleware(['auth', 'can:administrator'])->except(['index', 'show']);
         $this->repository = $repository;
     }
 
