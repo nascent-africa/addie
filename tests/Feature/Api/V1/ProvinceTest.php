@@ -95,7 +95,7 @@ class ProvinceTest extends TestCase
      */
     public function can_return_region_belonging_to_province()
     {
-        $province = $this->createProvince();
+        $this->createProvince();
 
         $region = factory(\App\Region::class, 5)->create()->random();
 
