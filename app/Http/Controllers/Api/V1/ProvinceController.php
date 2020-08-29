@@ -182,7 +182,7 @@ class ProvinceController extends Controller
             app()->setLocale($locale);
 
             $region = $this->repository
-                ->getRelationshipBelongingTo($name, 'region', 'api:provinces:'.$name.':region');
+                ->getRelationshipBelongingTo($name, 'cached_region');
 
             return response()->json([
                 'success'       => true,
@@ -220,7 +220,7 @@ class ProvinceController extends Controller
             app()->setLocale($locale);
 
             $country = $this->repository
-                ->getRelationshipBelongingTo($name, 'country', 'api:provinces:'.$name.':country');
+                ->getRelationshipBelongingTo($name, 'cached_country');
 
             return response()->json([
                 'success'       => true,
@@ -258,7 +258,7 @@ class ProvinceController extends Controller
             app()->setLocale($locale);
 
             $localGovernmentAreas = $this->repository
-                ->getRelationshipBelongingTo($name, 'localGovernmentAreas', 'api:provinces:'.$name.':local_government_area');
+                ->getRelationshipBelongingTo($name, 'cached_local_government_areas');
 
             return response()->json([
                 'success'       => true,
@@ -293,7 +293,7 @@ class ProvinceController extends Controller
             app()->setLocale($locale);
 
             $cities = $this->repository
-                ->getRelationshipBelongingTo($name, 'cities', 'api:provinces:'.$name.':cities');
+                ->getRelationshipBelongingTo($name, 'cached_cities');
 
             return response()->json([
                 'success'       => true,
@@ -328,7 +328,7 @@ class ProvinceController extends Controller
             app()->setLocale($locale);
 
             $villages = $this->repository
-                ->getRelationshipBelongingTo($name, 'villages', 'api:provinces:'.$name.':villages');
+                ->getRelationshipBelongingTo($name, 'cached_villages');
 
             return response()->json([
                 'success'       => true,

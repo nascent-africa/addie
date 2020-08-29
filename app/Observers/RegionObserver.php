@@ -17,6 +17,8 @@ class RegionObserver
     {
         // Clean cache...
         Cache::forget('region:'.$region->slug);
+        Cache::forget('api:regions');
+        Cache::forget('api:regions:'.$region->name);
     }
 
     /**
@@ -29,6 +31,8 @@ class RegionObserver
     {
         // Clean cache...
         Cache::forget('region:'.$region->slug);
+        Cache::forget('api:regions');
+        Cache::forget('api:regions:'.$region->name);
     }
 
     /**
@@ -41,6 +45,8 @@ class RegionObserver
     {
         // Clean cache...
         Cache::forget('region:'.$region->slug);
+        Cache::forget('api:regions');
+        Cache::forget('api:regions:'.$region->name);
     }
 
     /**
@@ -53,6 +59,8 @@ class RegionObserver
     {
         // Clean cache...
         Cache::forget('region:'.$region->slug);
+        Cache::forget('api:regions');
+        Cache::forget('api:regions:'.$region->name);
     }
 
     /**
@@ -65,5 +73,7 @@ class RegionObserver
     {
         // Clean cache...
         Cache::forget('region:'.$region->slug);
+        Cache::forget('api:regions');
+        Cache::forget('api:regions:'.$region->name);
     }
 }

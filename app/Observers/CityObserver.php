@@ -17,6 +17,8 @@ class CityObserver
     {
         // Clean cache...
         Cache::forget('city:'.$city->slug);
+        Cache::forget('api:cities');
+        Cache::forget('api:cities:'.$city->name);
     }
 
     /**
@@ -29,6 +31,8 @@ class CityObserver
     {
         // Clean cache...
         Cache::forget('city:'.$city->slug);
+        Cache::forget('api:cities');
+        Cache::forget('api:cities:'.$city->name);
     }
 
     /**
@@ -41,6 +45,8 @@ class CityObserver
     {
         // Clean cache...
         Cache::forget('city:'.$city->slug);
+        Cache::forget('api:cities');
+        Cache::forget('api:cities:'.$city->name);
     }
 
     /**
@@ -53,6 +59,8 @@ class CityObserver
     {
         // Clean cache...
         Cache::forget('city:'.$city->slug);
+        Cache::forget('api:cities');
+        Cache::forget('api:cities:'.$city->name);
     }
 
     /**
@@ -65,5 +73,7 @@ class CityObserver
     {
         // Clean cache...
         Cache::forget('city:'.$city->slug);
+        Cache::forget('api:cities');
+        Cache::forget('api:cities:'.$city->name);
     }
 }

@@ -2,17 +2,27 @@
 
 namespace App;
 
-use App\Concerns\HasSearch;
-use App\Concerns\HasSlug;
-use App\Support\Helpers;
+use App\Contracts\CacheableModelInterface;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Facades\Cache;
 use Laravel\Scout\Searchable;
 
-class Village extends Model
+class Village extends Model implements CacheableModelInterface
 {
-    use HasSlug, Searchable;
+    use Searchable,
+        Concerns\HasSlug,
+        Concerns\HasCache,
+        Concerns\BelongsToCountry,
+        Concerns\BelongsToRegion,
+        Concerns\BelongToProvince,
+        Concerns\BelongsToLocalGovernmentArea,
+        Concerns\BelongsToCity;
+
+    /**
+     * The relationships that should be touched on save.
+     *
+     * @var array
+     */
+    protected $touches = ['country', 'region', 'province', 'localGovernmentArea', 'city'];
 
     /**
      * Get the indexable data array for the model.
@@ -43,73 +53,10 @@ class Village extends Model
      * @var array
      */
     protected $casts = [
-        'country_id' => 'integer',
-        'region_id' => 'integer',
-        'province_id' => 'integer',
-        'city_id' => 'integer'
+        'country_id'                => 'integer',
+        'region_id'                 => 'integer',
+        'province_id'               => 'integer',
+        'city_id'                   => 'integer',
+        'local_government_area_id'  => 'integer'
     ];
-
-    /**
-     * Get this region of this village.
-     *
-     * @return BelongsTo
-     */
-    public function country()
-    {
-        return $this->belongsTo(Country::class);
-    }
-
-    /**
-     * Get the region for this village
-     *
-     * @return BelongsTo
-     */
-    public function region()
-    {
-        return $this->belongsTo(Region::class);
-    }
-
-    /**
-     * Get the province of this village
-     *
-     * @return BelongsTo
-     */
-    public function province()
-    {
-        return $this->belongsTo(Province::class);
-    }
-
-    /**
-     * Get the local government of this village.
-     *
-     * @return BelongsTo
-     */
-    public function localGovernmentArea()
-    {
-        return $this->belongsTo(LocalGovernmentArea::class);
-    }
-
-    /**
-     * Get the city this village is in.
-     *
-     * @return BelongsTo
-     */
-    public function city()
-    {
-        return $this->belongsTo(City::class);
-    }
-
-    /**
-     * Retrieve the model for a bound value.
-     *
-     * @param  mixed  $value
-     * @param  string|null  $field
-     * @return Province|null
-     */
-    public function resolveRouteBinding($value, $field = null)
-    {
-        return Cache::remember('village:'.$value, Helpers::CACHE_TIME, function () use($value) {
-            return $this->querySlug($value)->firstOrFail();
-        });
-    }
 }

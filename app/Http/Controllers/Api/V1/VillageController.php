@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Exceptions\InvalidLocaleException;
 use App\Http\Resources\City as CityResource;
-use App\Http\Resources\CityCollection;
 use App\Http\Resources\Country as CountryResource;
 use App\Http\Resources\LocalGovernmentArea as LocalGovernmentAreaResource;
 use App\Http\Resources\Province as ProvinceResource;
@@ -115,7 +114,7 @@ class VillageController extends Controller
             app()->setLocale($locale);
 
             $region = $this->repository
-                ->getRelationshipBelongingTo($name, 'region', 'api:villages:'.$name.':region');
+                ->getRelationshipBelongingTo($name, 'cached_region');
 
             return response()->json([
                 'success'       => true,
@@ -153,7 +152,7 @@ class VillageController extends Controller
             app()->setLocale($locale);
 
             $country = $this->repository
-                ->getRelationshipBelongingTo($name, 'country', 'api:villages:'.$name.':country');
+                ->getRelationshipBelongingTo($name, 'cached_country');
 
             return response()->json([
                 'success'       => true,
@@ -191,7 +190,7 @@ class VillageController extends Controller
             app()->setLocale($locale);
 
             $localGovernmentAreas = $this->repository
-                ->getRelationshipBelongingTo($name, 'province', 'api:villages:'.$name.':province');
+                ->getRelationshipBelongingTo($name, 'cached_province');
 
             return response()->json([
                 'success'       => true,
@@ -226,7 +225,7 @@ class VillageController extends Controller
             app()->setLocale($locale);
 
             $localGovernmentAreas = $this->repository
-                ->getRelationshipBelongingTo($name, 'province', 'api:villages:'.$name.':province');
+                ->getRelationshipBelongingTo($name, 'cached_province');
 
             return response()->json([
                 'success'       => true,
@@ -261,7 +260,7 @@ class VillageController extends Controller
             app()->setLocale($locale);
 
             $localGovernmentArea = $this->repository
-                ->getRelationshipBelongingTo($name, 'localGovernmentArea', 'api:villages:'.$name.':local_government_area');
+                ->getRelationshipBelongingTo($name, 'cached_local_government_area');
 
             return response()->json([
                 'success'       => true,
@@ -298,7 +297,7 @@ class VillageController extends Controller
             app()->setLocale($locale);
 
             $city = $this->repository
-                ->getRelationshipBelongingTo($name, 'city', 'api:villages:'.$name.':city');
+                ->getRelationshipBelongingTo($name, 'cached_city');
 
             return response()->json([
                 'success'       => true,

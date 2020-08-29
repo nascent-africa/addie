@@ -26,10 +26,9 @@ interface BaseRepositoryInterface
      *
      * @param string $name
      * @param string $relationship
-     * @param string $cacheKey
      * @return Collection|Model|mixed
      */
-    public function getRelationshipBelongingTo(string $name, string $relationship, string $cacheKey);
+    public function getRelationshipBelongingTo(string $name, string $relationship);
 
     /**
      * Get all the records for this entity.
@@ -47,5 +46,5 @@ interface BaseRepositoryInterface
      * @param string $cacheKey
      * @return Model
      */
-    public function apiFindByNameWithRelationship(string $name, $relationship, $cacheKey);
+    public function apiFindByNameWithRelationship(string $name, $relationship, string $cacheKey);
 }

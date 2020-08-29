@@ -17,6 +17,8 @@ class LocalGovernmentAreaObserver
     {
         // Clean cache...
         Cache::forget('local-government-area:'.$localGovernmentArea->slug);
+        Cache::forget('api:local_government_areas');
+        Cache::forget('api:local_government_areas:'.$localGovernmentArea->name);
     }
 
     /**
@@ -29,6 +31,8 @@ class LocalGovernmentAreaObserver
     {
         // Clean cache...
         Cache::forget('local-government-area:'.$localGovernmentArea->slug);
+        Cache::forget('api:local_government_areas');
+        Cache::forget('api:local_government_areas:'.$localGovernmentArea->name);
     }
 
     /**
@@ -41,6 +45,8 @@ class LocalGovernmentAreaObserver
     {
         // Clean cache...
         Cache::forget('local-government-area:'.$localGovernmentArea->slug);
+        Cache::forget('api:local_government_areas');
+        Cache::forget('api:local_government_areas:'.$localGovernmentArea->name);
     }
 
     /**
@@ -53,6 +59,8 @@ class LocalGovernmentAreaObserver
     {
         // Clean cache...
         Cache::forget('local-government-area:'.$localGovernmentArea->slug);
+        Cache::forget('api:local_government_areas');
+        Cache::forget('api:local_government_areas:'.$localGovernmentArea->name);
     }
 
     /**
@@ -65,5 +73,7 @@ class LocalGovernmentAreaObserver
     {
         // Clean cache...
         Cache::forget('local-government-area:'.$localGovernmentArea->slug);
+        Cache::forget('api:local_government_areas');
+        Cache::forget('api:local_government_areas:'.$localGovernmentArea->name);
     }
 }

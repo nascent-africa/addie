@@ -17,6 +17,8 @@ class CountryObserver
     {
         // Clean cache...
         Cache::forget('country:'.$country->slug);
+        Cache::forget('api:countries');
+        Cache::forget('api:countries:'.$country->name);
     }
 
     /**
@@ -29,6 +31,8 @@ class CountryObserver
     {
         // Clean cache...
         Cache::forget('country:'.$country->slug);
+        Cache::forget('api:countries');
+        Cache::forget('api:countries:'.$country->name);
     }
 
     /**
@@ -41,6 +45,8 @@ class CountryObserver
     {
         // Clean cache...
         Cache::forget('country:'.$country->slug);
+        Cache::forget('api:countries');
+        Cache::forget('api:countries:'.$country->name);
     }
 
     /**
@@ -53,6 +59,8 @@ class CountryObserver
     {
         // Clean cache...
         Cache::forget('country:'.$country->slug);
+        Cache::forget('api:countries');
+        Cache::forget('api:countries:'.$country->name);
     }
 
     /**
@@ -65,5 +73,7 @@ class CountryObserver
     {
         // Clean cache...
         Cache::forget('country:'.$country->slug);
+        Cache::forget('api:countries');
+        Cache::forget('api:countries:'.$country->name);
     }
 }

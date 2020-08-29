@@ -17,6 +17,8 @@ class VillageObserver
     {
         // Clean cache...
         Cache::forget('village:'.$village->slug);
+        Cache::forget('api:villages');
+        Cache::forget('api:villages:'.$village->name);
     }
 
     /**
@@ -29,6 +31,8 @@ class VillageObserver
     {
         // Clean cache...
         Cache::forget('village:'.$village->slug);
+        Cache::forget('api:villages');
+        Cache::forget('api:villages:'.$village->name);
     }
 
     /**
@@ -41,6 +45,8 @@ class VillageObserver
     {
         // Clean cache...
         Cache::forget('village:'.$village->slug);
+        Cache::forget('api:villages');
+        Cache::forget('api:villages:'.$village->name);
     }
 
     /**
@@ -53,6 +59,8 @@ class VillageObserver
     {
         // Clean cache...
         Cache::forget('village:'.$village->slug);
+        Cache::forget('api:villages');
+        Cache::forget('api:villages:'.$village->name);
     }
 
     /**
@@ -65,5 +73,7 @@ class VillageObserver
     {
         // Clean cache...
         Cache::forget('village:'.$village->slug);
+        Cache::forget('api:villages');
+        Cache::forget('api:villages:'.$village->name);
     }
 }

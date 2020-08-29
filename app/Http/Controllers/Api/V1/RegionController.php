@@ -114,7 +114,7 @@ class RegionController extends Controller
             app()->setLocale($locale);
 
             $country = $this->repository
-                ->getRelationshipBelongingTo($name, 'country', 'api:regions:'.$name.':country');
+                ->getRelationshipBelongingTo($name, 'cached_country');
 
             return response()->json([
                 'success'       => true,
@@ -152,7 +152,7 @@ class RegionController extends Controller
             app()->setLocale($locale);
 
             $provinces = $this->repository
-                ->getRelationshipBelongingTo($name, 'provinces', 'api:regions:'.$name.':provinces');
+                ->getRelationshipBelongingTo($name, 'cached_provinces');
 
             return response()->json([
                 'success'       => true,
@@ -192,7 +192,7 @@ class RegionController extends Controller
             app()->setLocale($locale);
 
             $provinces = $this->repository
-                ->getRelationshipBelongingTo($name, 'provinces', 'api:regions:'.$name.':provinces');
+                ->getRelationshipBelongingTo($name, 'cached_provinces');
 
             return response()->json([
                 'success'       => true,
@@ -230,7 +230,7 @@ class RegionController extends Controller
             app()->setLocale($locale);
 
             $localGovernmentAreas = $this->repository
-                ->getRelationshipBelongingTo($name, 'localGovernmentAreas', 'api:regions:'.$name.':local_government_area');
+                ->getRelationshipBelongingTo($name, 'cached_local_government_areas');
 
             return response()->json([
                 'success'       => true,
@@ -265,7 +265,7 @@ class RegionController extends Controller
             app()->setLocale($locale);
 
             $cities = $this->repository
-                ->getRelationshipBelongingTo($name, 'cities', 'api:regions:'.$name.':cities');
+                ->getRelationshipBelongingTo($name, 'cached_cities');
 
             return response()->json([
                 'success'       => true,
@@ -300,7 +300,7 @@ class RegionController extends Controller
             app()->setLocale($locale);
 
             $villages = $this->repository
-                ->getRelationshipBelongingTo($name, 'villages', 'api:regions:'.$name.':villages');
+                ->getRelationshipBelongingTo($name, 'cached_villages');
 
             return response()->json([
                 'success'       => true,

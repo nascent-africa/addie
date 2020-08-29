@@ -85,9 +85,9 @@ abstract class BaseRepository implements BaseRepositoryInterface
      * @param string $cacheKey
      * @return Model
      */
-    public function apiFindByNameWithRelationship(string $name, $relationship, $cacheKey)
+    public function apiFindByNameWithRelationship(string $name, $relationship, string $cacheKey)
     {
-        return Cache::remember('api:countries:'.$name, Helpers::CACHE_TIME, function () use($name, $relationship) {
+        return Cache::remember($cacheKey, Helpers::CACHE_TIME, function () use($name, $relationship) {
             return $this->model->with($relationship)
                 ->where("name->".app()->getLocale(), $name)
                 ->firstOrFail();
@@ -99,15 +99,12 @@ abstract class BaseRepository implements BaseRepositoryInterface
      *
      * @param string $name
      * @param string $relationship
-     * @param string $cacheKey
      * @return Collection|Model|mixed
      */
-    public function getRelationshipBelongingTo(string $name, string $relationship, string $cacheKey)
+    public function getRelationshipBelongingTo(string $name, string $relationship)
     {
-        return Cache::remember($cacheKey, Helpers::CACHE_TIME, function () use($name, $relationship) {
-            return ($this->model->where("name->".app()->getLocale(), $name)
-                ->firstOrFail())
-                ->{$relationship};
-        });
+        return ($this->model->where("name->".app()->getLocale(), $name)
+                            ->firstOrFail())
+                            ->{$relationship};
     }
 }

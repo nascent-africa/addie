@@ -2,31 +2,28 @@
 
 namespace App;
 
-use App\Concerns\HasSearch;
-use App\Concerns\HasSlug;
-use App\Support\Helpers;
+use App\Concerns\BelongsToCountry;
+use App\Contracts\CacheableModelInterface;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Facades\Cache;
 use Laravel\Scout\Searchable;
 
-class Region extends Model
+class Region extends Model implements CacheableModelInterface
 {
-    use HasSlug, Searchable;
+    use Searchable,
+        Concerns\HasSlug,
+        Concerns\HasCache,
+        Concerns\HasManyProvinces,
+        Concerns\HasManyLocalGovernmentAreas,
+        Concerns\HasManyCities,
+        Concerns\HasManyVillages,
+        BelongsToCountry;
 
     /**
-     * Get the indexable data array for the model.
+     * The relationships that should be touched on save.
      *
-     * @return array
+     * @var array
      */
-    public function toSearchableArray()
-    {
-        return [
-            'id' => $this->id,
-            'name' => $this->name,
-        ];
-    }
+    protected $touches = ['country', 'provinces', 'localGovernmentAreas', 'cities', 'villages'];
 
     /**
      * The attributes that are mass assignable.
@@ -47,66 +44,15 @@ class Region extends Model
     ];
 
     /**
-     * Get this region's country.
+     * Get the indexable data array for the model.
      *
-     * @return BelongsTo
+     * @return array
      */
-    public function country()
+    public function toSearchableArray()
     {
-        return $this->belongsTo(Country::class);
-    }
-
-    /**
-     * Get this country's provinces
-     *
-     * @return HasMany
-     */
-    public function provinces()
-    {
-        return $this->hasMany(Province::class);
-    }
-
-    /**
-     * Get this country's cities
-     *
-     * @return HasMany
-     */
-    public function cities()
-    {
-        return $this->hasMany(City::class);
-    }
-
-    /**
-     * Show local government areas in this region if any.
-     *
-     * @return HasMany
-     */
-    public function localGovernmentAreas()
-    {
-        return $this->hasMany(LocalGovernmentArea::class);
-    }
-
-    /**
-     * Get the villages in this region
-     *
-     * @return HasMany
-     */
-    public function villages()
-    {
-        return $this->hasMany(Village::class);
-    }
-
-    /**
-     * Retrieve the model for a bound value.
-     *
-     * @param  mixed  $value
-     * @param  string|null  $field
-     * @return Region|null
-     */
-    public function resolveRouteBinding($value, $field = null)
-    {
-        return Cache::remember('region:'.$value, Helpers::CACHE_TIME, function () use($value) {
-            return $this->querySlug($value)->firstOrFail();
-        });
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+        ];
     }
 }

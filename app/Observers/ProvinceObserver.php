@@ -17,6 +17,8 @@ class ProvinceObserver
     {
         // Clean cache...
         Cache::forget('province:'.$province->slug);
+        Cache::forget('api:provinces');
+        Cache::forget('api:provinces:'.$province->name);
     }
 
     /**
@@ -29,6 +31,8 @@ class ProvinceObserver
     {
         // Clean cache...
         Cache::forget('province:'.$province->slug);
+        Cache::forget('api:provinces');
+        Cache::forget('api:provinces:'.$province->name);
     }
 
     /**
@@ -41,6 +45,8 @@ class ProvinceObserver
     {
         // Clean cache...
         Cache::forget('province:'.$province->slug);
+        Cache::forget('api:provinces');
+        Cache::forget('api:provinces:'.$province->name);
     }
 
     /**
@@ -53,6 +59,8 @@ class ProvinceObserver
     {
         // Clean cache...
         Cache::forget('province:'.$province->slug);
+        Cache::forget('api:provinces');
+        Cache::forget('api:provinces:'.$province->name);
     }
 
     /**
@@ -65,5 +73,7 @@ class ProvinceObserver
     {
         // Clean cache...
         Cache::forget('province:'.$province->slug);
+        Cache::forget('api:provinces');
+        Cache::forget('api:provinces:'.$province->name);
     }
 }
