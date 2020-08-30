@@ -2,10 +2,10 @@
 
 @section('content')
     <x-page-wrapper>
-        <div class="p-4 p-md-5 mt-3 mb-4 text-white rounded bg-dark">
-            <div class="col-md-6 px-0">
+        <div class="row p-4 p-md-5 mt-3 mb-4 text-white rounded bg-dark shadow justify-content-center">
+            <div class="col-8 px-0 text-center">
                 <h1 class="display-4">Addie</h1>
-                <p class="lead my-3">Addie is a simple resource for an address form field auto-complete.</p>
+                <p class="lead my-3">{{__('Addie is an alternative to google address auto-complete api built to give more control and flexibility to offer users options of places to choose from.')}}</p>
             </div>
         </div>
 
