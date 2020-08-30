@@ -8,5 +8,15 @@
                 <p class="lead my-3">Addie is a simple resource for an address form field auto-complete.</p>
             </div>
         </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <test-address-component></test-address-component>
+                    </div>
+                </div>
+            </div>
+        </div>
     </x-page-wrapper>
 @endsection
