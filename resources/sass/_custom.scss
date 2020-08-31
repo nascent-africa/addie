@@ -3,6 +3,11 @@
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
 
+body {
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+    color: rgb(118, 118, 118);
+}
+
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;

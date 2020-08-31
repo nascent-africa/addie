@@ -17124,6 +17124,11 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
+body {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+  color: #767676;
+}
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;

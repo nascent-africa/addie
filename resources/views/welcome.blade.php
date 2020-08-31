@@ -10,10 +10,20 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <test-address-component></test-address-component>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row text-white rounded bg-white shadow-sm">
+                    <div class="col-12 pt-3 text-dark">
+                        <h3 class="display-6">{{ __('Documentation') }}</h3>
+                        <p class="lead my-3">
+                            Integrating Addie API is effortless and does not require much configuration like Google address API. To get started, create a free account with Addie, create an API authentication token by navigating to "My Tokens", click on the "Create Token" button at the top right corner to reveal a pop-up modal, provide the name of the application you wish to use to make the API requests from and then click "Generate". You can create as many API tokens for as many applications as you want.
+                        </p>
                     </div>
                 </div>
             </div>
