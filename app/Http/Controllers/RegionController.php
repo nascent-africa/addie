@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Region;
 use App\Repositories\RegionRepository;
 use App\Support\Helpers;
+use CodeZero\UniqueTranslation\UniqueTranslationRule;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -66,7 +67,8 @@ class RegionController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name'          => ['required', 'string', 'max:20', 'unique:countries'],
+            'name.en'       => ['required', 'string', 'max:20', 'unique_translation:regions'],
+            'name.fr'       => ['required', 'string', 'max:20', 'unique_translation:regions'],
             'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
             'latitude'      => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
             'country_id'    => ['required']
@@ -117,13 +119,16 @@ class RegionController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Region $region
+     * @param string $slug
      * @return RedirectResponse
      */
-    public function update(Request $request, Region $region)
+    public function update(Request $request, string $slug)
     {
+        $region = Region::whereSlug($slug)->firstOrfail();
+
         $data = $request->validate([
-            'name'          => ['required', 'string', 'max:20', Rule::unique('regions')->ignore($region->id)],
+            'name.en'       => ['required', 'string', 'max:20', UniqueTranslationRule::for('regions')->ignore($region->id)],
+            'name.fr'       => ['required', 'string', 'max:20', UniqueTranslationRule::for('regions')->ignore($region->id)],
             'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
             'latitude'      => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
             'country_id'    => ['required']
@@ -139,12 +144,14 @@ class RegionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Region $region
+     * @param string $slug
      * @return RedirectResponse
      * @throws Exception
      */
-    public function destroy(Region $region)
+    public function destroy(string $slug)
     {
+        $region = Region::whereSlug($slug)->firstOrfail();
+
         $model = clone $region;
 
         $region->delete();

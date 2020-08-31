@@ -47,18 +47,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">{{ __('Name') }}</label>
-
-                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                                           value="{{ old('name', $localGovernmentArea->name ?? null) }}" id="name" placeholder="Burkina Faso">
-
-                                    @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                    @enderror
-                                </div>
+                                <x-name-field :node="$localGovernmentArea ?? null"></x-name-field>
 
                                 <div class="row g-1">
                                     <div class="col-sm-6">

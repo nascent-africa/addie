@@ -36,27 +36,15 @@
 
                             <div class="card-body">
                                 <div class="row g-1">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-6">
                                         <x-country-select :country="$province->country ?? null"></x-country-select>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-6">
                                         <x-region-select :region="$province->region ?? null"></x-region-select>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="mb-3">
-                                            <label for="name" class="form-label">{{ __('Name') }}</label>
-
-                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                                                   value="{{ old('name', $province->name ?? null) }}" id="name" placeholder="Burkina Faso">
-
-                                            @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
                                 </div>
+
+                                <x-name-field :node="$province ?? null"></x-name-field>
 
                                 <div class="row g-1">
                                     <div class="col-sm-6">

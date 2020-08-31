@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\VillageRepository;
 use App\Support\Helpers;
 use App\Village;
+use CodeZero\UniqueTranslation\UniqueTranslationRule;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -64,7 +65,8 @@ class VillageController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name'          => ['required', 'string', 'max:20'],
+            'name.en'       => ['required', 'string', 'max:20', 'unique_translation:villages'],
+            'name.fr'       => ['required', 'string', 'max:20', 'unique_translation:villages'],
             'longitude'     => ['nullable', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
             'latitude'      => ['nullable', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
             'country_id'    => ['nullable', 'exists:countries,id'],
@@ -103,7 +105,7 @@ class VillageController extends Controller
      * @param string $slug
      * @return Application|Factory|View
      */
-    public function edit($slug)
+    public function edit(string $slug)
     {
         $village = Cache::remember('village:'.$slug, Helpers::CACHE_TIME, function () use($slug) {
             return Village::whereSlug($slug)->with(['country', 'region', 'province'])->firstOrfail();
@@ -118,13 +120,16 @@ class VillageController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Village $village
+     * @param string $slug
      * @return RedirectResponse
      */
-    public function update(Request $request, Village $village)
+    public function update(Request $request, string $slug)
     {
+        $village = Village::whereSlug($slug)->firstOrfail();
+
         $data = $request->validate([
-            'name'          => ['required', 'string', 'max:20'],
+            'name.en'       => ['required', 'string', 'max:20', UniqueTranslationRule::for('villages')->ignore($village->id)],
+            'name.fr'       => ['required', 'string', 'max:20', UniqueTranslationRule::for('villages')->ignore($village->id)],
             'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
             'latitude'      => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
             'country_id'    => ['nullable', 'exists:countries,id'],
@@ -143,12 +148,14 @@ class VillageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Village $village
+     * @param string $slug
      * @return RedirectResponse
      * @throws Exception
      */
-    public function destroy(Village $village)
+    public function destroy(string $slug)
     {
+        $village = Village::whereSlug($slug)->firstOrfail();
+
         $model = clone $village;
 
         $village->delete();

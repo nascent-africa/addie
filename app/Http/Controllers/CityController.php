@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\City;
 use App\Repositories\CityRepository;
 use App\Support\Helpers;
+use CodeZero\UniqueTranslation\UniqueTranslationRule;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -64,7 +65,8 @@ class CityController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name'          => ['required', 'string', 'max:20'],
+            'name.en'       => ['required', 'string', 'max:20', 'unique_translation:cities'],
+            'name.fr'       => ['required', 'string', 'max:20', 'unique_translation:cities'],
             'longitude'     => ['nullable', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
             'latitude'      => ['nullable', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
             'country_id'    => ['nullable', 'exists:countries,id'],
@@ -117,13 +119,16 @@ class CityController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param City $city
+     * @param string $slug
      * @return RedirectResponse
      */
-    public function update(Request $request, City $city)
+    public function update(Request $request, string $slug)
     {
+        $city = City::whereSlug($slug)->firstOrfail();
+
         $data = $request->validate([
-            'name'          => ['required', 'string', 'max:20'],
+            'name.en'       => ['required', 'string', 'max:20', UniqueTranslationRule::for('cities')->ignore($city->id)],
+            'name.fr'       => ['required', 'string', 'max:20', UniqueTranslationRule::for('cities')->ignore($city->id)],
             'longitude'     => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
             'latitude'      => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
             'country_id'    => ['nullable', 'exists:countries,id'],
@@ -141,12 +146,14 @@ class CityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param City $city
+     * @param string $slug
      * @return RedirectResponse
      * @throws Exception
      */
-    public function destroy(City $city)
+    public function destroy(string $slug)
     {
+        $city = City::whereSlug($slug)->firstOrfail();
+
         $model = clone $city;
 
         $city->delete();
