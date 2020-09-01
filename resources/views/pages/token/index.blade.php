@@ -18,7 +18,9 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $token->name }}</td>
-                        <td><input type="text" class="form-control-plaintext px-2" value="{{ $token->authorization_token }}"></td>
+                        <td>
+                            <p class="user-select-all">{{ $token->authorization_token }}</p>
+                        </td>
                         <td>{{ $token->created_at->diffForHumans() }}</td>
                         <td>
                             <x-delete-button name="{{ $token->name }}"
