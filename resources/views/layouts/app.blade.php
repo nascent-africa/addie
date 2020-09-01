@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
 
     @stack('styles')
 </head>
@@ -206,6 +206,6 @@
     </script>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="/js/app.js" defer></script>
 </body>
 </html>
