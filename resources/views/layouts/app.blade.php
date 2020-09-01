@@ -3,9 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Address API for form UI">
+    <meta name="author" content="Anitche Chisom">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="apple-touch-icon" href="/icon.png">
+    <!-- Place favicon.ico in the root directory -->
 
     <title>{{ config('app.name', 'Buudu') }}</title>
 
