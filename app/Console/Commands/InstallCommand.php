@@ -58,7 +58,7 @@ class InstallCommand extends Command
 
         $user->assignRole(['superuser']);
 
-        if ($this->option('dev')) {
+        if ($this->option('dev') === true) {
             // Preparing development test data...
             $this->call('db:seed', [
                 '--class' => 'DatabaseSeeder'
