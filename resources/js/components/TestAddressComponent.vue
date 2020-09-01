@@ -12,7 +12,7 @@
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="countries" class="form-label">{{ $t('Country') }}</label>
-                    <select v-model="country" @change="getRegions(country)" class="form-select" id="countries">
+                    <select :disabled="isLoading" v-model="country" @change="getRegions(country)" class="form-select" id="countries">
                         <option selected :value="null">{{ $t('Open this to select country') }}</option>
                         <option v-for="country in countries"
                                 :value="country.name" v-text="country.name"></option>
@@ -22,7 +22,7 @@
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="region" class="form-label">{{ $t('Region') }}</label>
-                    <select v-model="region" @change="getProvince(region)" class="form-select" id="region">
+                    <select :disabled="isLoading" v-model="region" @change="getProvince(region)" class="form-select" id="region">
                         <option selected :value="null">{{ $t('Open this to select region') }}</option>
                         <option v-for="region in regions"
                                 :value="region.name" v-text="region.name"></option>
@@ -34,7 +34,7 @@
             <div class="col-md-5">
                 <div class="mb-3">
                     <label for="province" class="form-label">{{ $t('Province') }}</label>
-                    <select v-model="province" @change="getCity" class="form-select" id="province">
+                    <select :disabled="isLoading" v-model="province" @change="getCity(province)" class="form-select" id="province">
                         <option selected :value="null">{{ $t('Open this to select province') }}</option>
                         <option v-for="province in provinces"
                                 :value="province.name" v-text="province.name"></option>
@@ -44,7 +44,7 @@
             <div class="col-md-5">
                 <div class="mb-3">
                     <label for="city" class="form-label">{{ $t('City') }}</label>
-                    <select v-model="city" class="form-select" id="city">
+                    <select :disabled="isLoading" v-model="city" class="form-select" id="city">
                         <option selected :value="null">{{ $t('Open this to select city') }}</option>
                         <option v-for="city in cities"
                                 :value="city.name" v-text="city.name"></option>
@@ -65,8 +65,16 @@
 export default {
     name: 'TestAddressComponent',
 
+    props: {
+        token: {
+            type: String,
+            required: true
+        }
+    },
+
     data() {
         return {
+            isLoading: false,
             country: null,
             countries: [],
             region: null,
@@ -77,34 +85,49 @@ export default {
             cities: [],
 
             axiosConfig: {
-                headers: { Authorization: `Bearer 2|j2Q51rpNhksSKzoRPSpLBHmM9Puzh0TC5oAdQtzFXaENTuPAReh424bt8T9XlCIw08NwhRG5gmTyYpDK` }
+                headers: { Authorization: `Bearer ${this.token}` }
             }
         }
     },
 
     created() {
+        this.isLoading = true
+
         axios.get('/api/v1/en/countries', this.axiosConfig).then(response => {
             this.countries = response.data.countries
+        }).finally(() => {
+            this.isLoading = false
         })
     },
 
     methods: {
         getRegions: function (name) {
+            this.isLoading = true
+
             axios.get(`/api/v1/en/countries/${name}/regions`, this.axiosConfig).then(response => {
                 this.regions = response.data.regions
+            }).finally(() => {
+                this.isLoading = false
             })
         },
 
         getProvince: function (name) {
+            this.isLoading = true
+
             axios.get(`/api/v1/en/regions/${name}/provinces`, this.axiosConfig).then(response => {
                 this.provinces = response.data.provinces
+            }).finally(() => {
+                this.isLoading = false
             })
         },
 
-        getCity: function (name)
-        {
+        getCity: function (name) {
+            this.isLoading = true
+
             axios.get(`/api/v1/en/provinces/${name}/cities`, this.axiosConfig).then(response => {
                 this.cities = response.data.cities
+            }).finally(() => {
+                this.isLoading = false
             })
         }
     }

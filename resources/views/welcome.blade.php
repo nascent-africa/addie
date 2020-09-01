@@ -13,7 +13,7 @@
             <div class="col-md-6">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <test-address-component></test-address-component>
+                        <test-address-component token="{{ env('REQUEST_TOKEN') }}"></test-address-component>
                     </div>
                 </div>
             </div>

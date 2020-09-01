@@ -1973,8 +1973,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TestAddressComponent',
+  props: {
+    token: {
+      type: String,
+      required: true
+    }
+  },
   data: function data() {
     return {
+      isLoading: false,
       country: null,
       countries: [],
       region: null,
@@ -1985,7 +1992,7 @@ __webpack_require__.r(__webpack_exports__);
       cities: [],
       axiosConfig: {
         headers: {
-          Authorization: "Bearer 2|j2Q51rpNhksSKzoRPSpLBHmM9Puzh0TC5oAdQtzFXaENTuPAReh424bt8T9XlCIw08NwhRG5gmTyYpDK"
+          Authorization: "Bearer ".concat(this.token)
         }
       }
     };
@@ -1993,30 +2000,42 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
+    this.isLoading = true;
     axios.get('/api/v1/en/countries', this.axiosConfig).then(function (response) {
       _this.countries = response.data.countries;
+    })["finally"](function () {
+      _this.isLoading = false;
     });
   },
   methods: {
     getRegions: function getRegions(name) {
       var _this2 = this;
 
+      this.isLoading = true;
       axios.get("/api/v1/en/countries/".concat(name, "/regions"), this.axiosConfig).then(function (response) {
         _this2.regions = response.data.regions;
+      })["finally"](function () {
+        _this2.isLoading = false;
       });
     },
     getProvince: function getProvince(name) {
       var _this3 = this;
 
+      this.isLoading = true;
       axios.get("/api/v1/en/regions/".concat(name, "/provinces"), this.axiosConfig).then(function (response) {
         _this3.provinces = response.data.provinces;
+      })["finally"](function () {
+        _this3.isLoading = false;
       });
     },
     getCity: function getCity(name) {
       var _this4 = this;
 
+      this.isLoading = true;
       axios.get("/api/v1/en/provinces/".concat(name, "/cities"), this.axiosConfig).then(function (response) {
         _this4.cities = response.data.cities;
+      })["finally"](function () {
+        _this4.isLoading = false;
       });
     }
   }
@@ -31989,7 +32008,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-select",
-              attrs: { id: "countries" },
+              attrs: { disabled: _vm.isLoading, id: "countries" },
               on: {
                 change: [
                   function($event) {
@@ -32050,7 +32069,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-select",
-              attrs: { id: "region" },
+              attrs: { disabled: _vm.isLoading, id: "region" },
               on: {
                 change: [
                   function($event) {
@@ -32115,7 +32134,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-select",
-              attrs: { id: "province" },
+              attrs: { disabled: _vm.isLoading, id: "province" },
               on: {
                 change: [
                   function($event) {
@@ -32131,7 +32150,9 @@ var render = function() {
                       ? $$selectedVal
                       : $$selectedVal[0]
                   },
-                  _vm.getCity
+                  function($event) {
+                    return _vm.getCity(_vm.province)
+                  }
                 ]
               }
             },
@@ -32174,7 +32195,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-select",
-              attrs: { id: "city" },
+              attrs: { disabled: _vm.isLoading, id: "city" },
               on: {
                 change: function($event) {
                   var $$selectedVal = Array.prototype.filter
