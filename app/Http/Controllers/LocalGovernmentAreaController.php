@@ -76,7 +76,7 @@ class LocalGovernmentAreaController extends Controller
 
         $city = LocalGovernmentArea::create($data);
 
-        flash()->success($city->name . ' was created successfully!');
+        flash()->success(Helpers::createdSuccess());
 
         return redirect()->route('localGovernmentAreas.show', $city);
     }
@@ -140,7 +140,7 @@ class LocalGovernmentAreaController extends Controller
 
         $localGovernmentArea->update($data);
 
-        flash()->success($localGovernmentArea->name . ' was updated successfully!');
+        flash()->success(Helpers::updatedSuccess());
 
         return back();
     }
@@ -160,7 +160,7 @@ class LocalGovernmentAreaController extends Controller
 
         $localGovernmentArea->delete();
 
-        flash()->success($model->name . ' deleted successfully!');
+        flash()->success(Helpers::deletedSuccess());
 
         return redirect()->route('localGovernmentAreas.index');
     }

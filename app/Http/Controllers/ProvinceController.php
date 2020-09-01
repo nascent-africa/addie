@@ -77,7 +77,7 @@ class ProvinceController extends Controller
 
         $province = Province::create($data);
 
-        flash()->success($province->name . ' was created successfully!');
+        flash()->success(Helpers::createdSuccess());
 
         return redirect()->route('provinces.show', $province);
     }
@@ -138,7 +138,7 @@ class ProvinceController extends Controller
 
         $province->update($data);
 
-        flash()->success($province->name . ' was updated successfully!');
+        flash()->success(Helpers::updatedSuccess());
 
         return back();
     }
@@ -158,7 +158,7 @@ class ProvinceController extends Controller
 
         $province->delete();
 
-        flash()->success($model->name . ' deleted successfully!');
+        flash()->success(Helpers::deletedSuccess());
 
         return redirect()->route('provinces.index');
     }

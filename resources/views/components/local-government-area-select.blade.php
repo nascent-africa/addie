@@ -5,7 +5,7 @@
         @if ($localGovernmentArea)
             <option value="{{ $localGovernmentArea->id }}">{{ $localGovernmentArea->name }}</option>
         @else
-            <option selected>Select Local Government Area</option>
+            <option selected>{{__('Select Local Government Area')}}</option>
         @endif
 
         @foreach($localGovernmentAreas as $localGovernmentArea)

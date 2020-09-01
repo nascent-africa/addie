@@ -5,7 +5,7 @@
         <div class="btn-toolbar mb-2 mb-md-0">
             <a href="{{ route('regions.create') }}" title="Add country" class="btn btn-sm btn-outline-secondary">
                 <span data-feather="plus-square"></span>
-                Add Region
+                {{__('Add Region')}}
             </a>
 
             {{ $actions ?? '' }}

@@ -77,7 +77,7 @@ class VillageController extends Controller
 
         $village = Village::create($data);
 
-        flash()->success($village->name . ' was created successfully!');
+        flash()->success(Helpers::createdSuccess());
 
         return redirect()->route('villages.show', $village);
     }
@@ -140,7 +140,7 @@ class VillageController extends Controller
 
         $village->update($data);
 
-        flash()->success($village->name . ' was updated successfully!');
+        flash()->success(Helpers::updatedSuccess());
 
         return back();
     }
@@ -160,7 +160,7 @@ class VillageController extends Controller
 
         $village->delete();
 
-        flash()->success($model->name . ' deleted successfully!');
+        flash()->success(Helpers::deletedSuccess());
 
         return redirect()->route('villages.index');
     }

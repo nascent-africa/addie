@@ -28,7 +28,7 @@ class RoleController extends Controller
     {
         $user->removeRole($role->name);
 
-        flash()->success("{$role->name} role has been removed from the user {$user->name}!");
+        flash()->success(__("Role assigned successfully!"));
 
         return redirect()->back();
     }
@@ -42,7 +42,7 @@ class RoleController extends Controller
 
         $user->assignRole($data['role']);
 
-        flash()->success("{$data['role']} role has been assigned to the user {$user->name}!");
+        flash()->success(__("Role assigned successfully!"));
 
         return redirect()->back();
     }

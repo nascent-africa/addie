@@ -3,7 +3,7 @@
 @section('content')
     <x-page-wrapper>
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">{{ __('Dashboard') }}</h1>
+            <h1 class="h2">{{ __('My dashboard') }}</h1>
         </div>
 
         <div class="row">
@@ -18,14 +18,14 @@
                             </div>
                             <div class="widget-summary-col">
                                 <div class="summary">
-                                    <h4 class="title">Users</h4>
+                                    <h4 class="title">{{__('Users')}}</h4>
                                     <div class="info">
                                         <strong class="amount">{{ $userCount }}</strong>
-                                        <span class="text-primary">Total</span>
+                                        <span class="text-primary">{{__('Total')}}</span>
                                     </div>
                                 </div>
                                 <div class="summary-footer">
-                                    <a href="#" class="text-decoration-none text-muted text-uppercase">view all</a>
+                                    <a href="#" class="text-decoration-none text-muted text-uppercase">{{__('view all')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -44,14 +44,14 @@
                             </div>
                             <div class="widget-summary-col">
                                 <div class="summary">
-                                    <h4 class="title">Countries</h4>
+                                    <h4 class="title">{{__('Countries')}}</h4>
                                     <div class="info">
                                         <strong class="amount">{{ $countryCount }}</strong>
-                                        <span class="text-primary">Total</span>
+                                        <span class="text-primary">{{__('Total')}}</span>
                                     </div>
                                 </div>
                                 <div class="summary-footer">
-                                    <a href="{{ route('countries.index') }}" class="text-decoration-none text-muted text-uppercase">view all</a>
+                                    <a href="{{ route('countries.index') }}" class="text-decoration-none text-muted text-uppercase">{{__('view all')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -70,14 +70,14 @@
                             </div>
                             <div class="widget-summary-col">
                                 <div class="summary">
-                                    <h4 class="title">Regions</h4>
+                                    <h4 class="title">{{__('Regions')}}</h4>
                                     <div class="info">
                                         <strong class="amount">{{ $regionCount }}</strong>
-                                        <span class="text-primary">Total</span>
+                                        <span class="text-primary">{{__('Total')}}</span>
                                     </div>
                                 </div>
                                 <div class="summary-footer">
-                                    <a href="{{ route('regions.index') }}" class="text-decoration-none text-muted text-uppercase">view all</a>
+                                    <a href="{{ route('regions.index') }}" class="text-decoration-none text-muted text-uppercase">{{__('view all')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -96,14 +96,14 @@
                             </div>
                             <div class="widget-summary-col">
                                 <div class="summary">
-                                    <h4 class="title">Provinces / States</h4>
+                                    <h4 class="title">{{__('States / Provinces')}}</h4>
                                     <div class="info">
                                         <strong class="amount">{{ $provinceCount }}</strong>
-                                        <span class="text-primary">Total</span>
+                                        <span class="text-primary">{{__('Total')}}</span>
                                     </div>
                                 </div>
                                 <div class="summary-footer">
-                                    <a href="{{ route('provinces.index') }}" class="text-decoration-none text-muted text-uppercase">view all</a>
+                                    <a href="{{ route('provinces.index') }}" class="text-decoration-none text-muted text-uppercase">{{__('view all')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -122,14 +122,14 @@
                             </div>
                             <div class="widget-summary-col">
                                 <div class="summary">
-                                    <h4 class="title">Local Government Areas</h4>
+                                    <h4 class="title">{{__('Local Government Areas')}}</h4>
                                     <div class="info">
                                         <strong class="amount">{{ $localGovernmentAreaCount }}</strong>
-                                        <span class="text-primary">Total</span>
+                                        <span class="text-primary">{{__('Total')}}</span>
                                     </div>
                                 </div>
                                 <div class="summary-footer">
-                                    <a href="{{ route('local_government_areas.index') }}" class="text-decoration-none text-muted text-uppercase">view all</a>
+                                    <a href="{{ route('local_government_areas.index') }}" class="text-decoration-none text-muted text-uppercase">{{__('view all')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -148,14 +148,14 @@
                             </div>
                             <div class="widget-summary-col">
                                 <div class="summary">
-                                    <h4 class="title">Cities</h4>
+                                    <h4 class="title">{{__('Cities')}}</h4>
                                     <div class="info">
                                         <strong class="amount">{{ $cityCount }}</strong>
-                                        <span class="text-primary">Total</span>
+                                        <span class="text-primary">{{__('Total')}}</span>
                                     </div>
                                 </div>
                                 <div class="summary-footer">
-                                    <a href="{{ route('cities.index') }}" class="text-decoration-none text-muted text-uppercase">view all</a>
+                                    <a href="{{ route('cities.index') }}" class="text-decoration-none text-muted text-uppercase">{{__('view all')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -174,14 +174,14 @@
                             </div>
                             <div class="widget-summary-col">
                                 <div class="summary">
-                                    <h4 class="title">Villages</h4>
+                                    <h4 class="title">{{__('Villages')}}</h4>
                                     <div class="info">
                                         <strong class="amount">{{ $villageCount }}</strong>
-                                        <span class="text-primary">Total</span>
+                                        <span class="text-primary">{{__('Total')}}</span>
                                     </div>
                                 </div>
                                 <div class="summary-footer">
-                                    <a href="{{ route('villages.index') }}" class="text-decoration-none text-muted text-uppercase">view all</a>
+                                    <a href="{{ route('villages.index') }}" class="text-decoration-none text-muted text-uppercase">{{__('view all')}}</a>
                                 </div>
                             </div>
                         </div>

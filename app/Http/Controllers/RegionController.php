@@ -76,7 +76,7 @@ class RegionController extends Controller
 
         $region = Region::create($data);
 
-        flash()->success($region->name . ' was created successfully!');
+        flash()->success(Helpers::createdSuccess());
 
         return redirect()->route('regions.show', $region);
     }
@@ -136,7 +136,7 @@ class RegionController extends Controller
 
         $region->update($data);
 
-        flash()->success($region->name . ' was updated successfully!');
+        flash()->success(Helpers::updatedSuccess());
 
         return back();
     }
@@ -156,7 +156,7 @@ class RegionController extends Controller
 
         $region->delete();
 
-        flash()->success($model->name . ' deleted successfully!');
+        flash()->success(Helpers::deletedSuccess());
 
         return redirect()->route('regions.index');
     }

@@ -4,7 +4,7 @@
     <x-page-wrapper>
         <div class="py-5 text-center">
             <h2>{{ __('Register') }}</h2>
-            <p class="lead">{{ __('Register to get more use out of Buudu') }}</p>
+            <p class="lead">{{ __('Register to get more use out of Addie') }}</p>
         </div>
 
         <div class="row justify-content-center">

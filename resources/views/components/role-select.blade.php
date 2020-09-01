@@ -32,7 +32,7 @@
                             </td>
                         </tr>
                     @empty
-                        <p>No roles assigned to this user.</p>
+                        <p>{{__('No roles assigned to this user.')}}</p>
                     @endforelse
                     </tbody>
                 </table>
@@ -42,7 +42,7 @@
                     @csrf
                     <div class="mb-3">
                         <select class="form-select text-capitalize" name="role" aria-label="Default select example">
-                            <option selected>Open this select role</option>
+                            <option selected>{{__('Open this select role')}}</option>
 
                             @foreach($roles as $role)
                                 <option value="{{ $role->name }}">{{ $role->name }}</option>

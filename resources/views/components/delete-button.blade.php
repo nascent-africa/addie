@@ -9,20 +9,20 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete {{ $name }}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{__('Delete')}} {{ $name }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                Are you sure you want to delete this?
+                {{__('Are you sure you want to delete this?')}}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('No')}}</button>
 
                 <a href="{{ $url }}" type="button" class="btn btn-primary"
                    onclick="event.preventDefault();
-                       document.getElementById('delete-form-{{ $id }}').submit();">Yes</a>
+                       document.getElementById('delete-form-{{ $id }}').submit();">{{__('Yes')}}</a>
 
                 <form id="delete-form-{{ $id }}" action="{{ $url }}" method="POST" style="display: none;">
                     @csrf

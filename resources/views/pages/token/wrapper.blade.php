@@ -3,9 +3,9 @@
         <h1 class="h2">{{ $title ?? __('Api Tokens') }}</h1>
         @can('administrator')
         <div class="btn-toolbar mb-2 mb-md-0">
-            <a role="button" href="{{ route('provinces.create') }}" title="Add country" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
+            <a role="button" href="#" title="Add country" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
                 <span data-feather="plus-square"></span>
-                Create token
+                {{__('Create token')}}
             </a>
 
             <!-- Modal -->
@@ -13,7 +13,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">{{ __('Generate a token') }}</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">{{ __('Create token') }}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

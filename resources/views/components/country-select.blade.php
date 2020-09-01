@@ -5,7 +5,7 @@
         @if ($country)
             <option value="{{ $country->id }}">{{ $country->name }}</option>
         @else
-            <option value="" selected>Select country</option>
+            <option value="" selected>{{__('Select country')}}</option>
         @endif
 
         @foreach($countries as $country)

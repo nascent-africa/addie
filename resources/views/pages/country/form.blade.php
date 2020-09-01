@@ -38,7 +38,7 @@
                                 <div class="row g-1">
                                     <div class="col-sm-2">
                                         <div class="mb-3">
-                                            <label for="code" class="form-label">{{ __('Code') }}</label>
+                                            <label for="code" class="form-label">{{ __('ISO Code') }}</label>
 
                                             <input type="text" name="iso_code" class="form-control @error('iso_code') is-invalid @enderror"
                                                    value="{{ old('iso_code', $country->iso_code ?? null) }}" id="code" placeholder="BF">
@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="mb-3">
-                                            <label for="calling_code" class="form-label">{{ __('Calling Code') }}</label>
+                                            <label for="calling_code" class="form-label">{{ __('Call Code') }}</label>
 
                                             <input type="text" name="calling_code" class="form-control @error('calling_code') is-invalid @enderror"
                                                    value="{{ old('calling_code', $country->calling_code ?? null) }}" id="calling_code" placeholder="+226">

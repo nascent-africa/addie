@@ -1,5 +1,5 @@
 <div class="mb-3">
-    <label for="province" class="form-label">{{ __('Province') }}</label>
+    <label for="province" class="form-label">{{ __('State / Province') }}</label>
 
     <select class="form-select @error('province_id') is-invalid @enderror" name="province_id" id="province">
         @if ($province)

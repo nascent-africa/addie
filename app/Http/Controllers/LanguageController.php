@@ -26,9 +26,9 @@ class LanguageController extends Controller
 
         $request->session()->put('locale', $data['locale']);
 
-        app()->setLocale($request->session()->get('locale'));
+        app()->setLocale($data['locale']);
 
-        flash()->success('Language changed successfully');
+        flash()->success(__('Language changed successfully!'));
 
         return redirect()->back();
     }

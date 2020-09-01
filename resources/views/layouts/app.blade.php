@@ -66,14 +66,14 @@
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="{{ route('profile') }}">
                                     <span data-feather="plus-square"></span>
-                                    {{ __('My Profile') }}
+                                    {{ __('My profile') }}
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="{{ route('tokens') }}">
                                     <span data-feather="plus-square"></span>
-                                    {{ __('My Tokens') }}
+                                    {{ __('My tokens') }}
                                 </a>
                             </li>
                         </x-menu-block>
@@ -193,13 +193,17 @@
 
                     <footer class="footer mt-auto py-3 bg-light">
                         <div class="container">
-                            <span class="text-muted">Developed by Nascent Africa</span>
+                            <span class="text-muted">{{__('Developed by Nascent Africa')}}</span>
                         </div>
                     </footer>
                 </main>
             </div>
         </div>
     </div>
+
+    <script>
+        window.locale = @json(app()->getLocale())
+    </script>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

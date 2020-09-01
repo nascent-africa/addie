@@ -10,10 +10,10 @@
             <div class="row pb-5">
                 <div class="col-md-4">
                     <div class="px-4">
-                        <h3 class="text-lg font-medium text-gray-900">Contact Information</h3>
+                        <h3 class="text-lg font-medium text-gray-900">{{__('Contact Information')}}</h3>
 
                         <p class="mt-1 text-sm text-gray-600">
-                            Update your account's contact information and email address.
+                            {{__("Update your account's contact information and email address.")}}
                         </p>
                     </div>
                 </div>
@@ -58,10 +58,10 @@
             <div class="row pt-5">
                 <div class="col-md-4">
                     <div class="px-4">
-                        <h3 class="text-lg font-medium text-gray-900">Update Password</h3>
+                        <h3 class="text-lg font-medium text-gray-900">{{__('Update Password')}}</h3>
 
                         <p class="mt-1 text-sm text-gray-600">
-                            Ensure your account is using a long, random password to stay secure.
+                            {{__('Ensure your account is using a long, random password to stay secure.')}}
                         </p>
                     </div>
                 </div>

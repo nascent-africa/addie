@@ -12,7 +12,7 @@
                 <tr>
                     <th scope="col" style="width: 3%">#</th>
                     <th scope="col">{{ __('Name') }}</th>
-                    <th scope="col">{{ __('Email Address') }}</th>
+                    <th scope="col">{{ __('Email address') }}</th>
                     <th scope="col" style="width: 10%">{{ __('Joined') }}</th>
                     <th scope="col" style="width: 10%">{{ __('Updated') }}</th>
                     <th scope="col" style="width: 3%"></th>

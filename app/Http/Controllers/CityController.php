@@ -76,7 +76,7 @@ class CityController extends Controller
 
         $city = City::create($data);
 
-        flash()->success($city->name . ' was created successfully!');
+        flash()->success(Helpers::createdSuccess());
 
         return redirect()->route('cities.show', $city);
     }
@@ -138,7 +138,7 @@ class CityController extends Controller
 
         $city->update($data);
 
-        flash()->success($city->name . ' was updated successfully!');
+        flash()->success(Helpers::updatedSuccess());
 
         return back();
     }
@@ -158,7 +158,7 @@ class CityController extends Controller
 
         $city->delete();
 
-        flash()->success($model->name . ' deleted successfully!');
+        flash()->success(Helpers::deletedSuccess());
 
         return redirect()->route('cities.index');
     }

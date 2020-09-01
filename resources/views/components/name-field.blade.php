@@ -12,7 +12,7 @@
             <label for="name" class="form-label">{{ __('Name') }}</label>
 
             <input type="text" name="name[en]" class="form-control @error('name.en') is-invalid @enderror"
-                   value="{{ old('name.en', $node ? $node->getTranslation('name', 'en') : null) }}" id="name" placeholder="Burkina Faso">
+                   value="{{ old('name.en', $node ? $node->getTranslation('name', 'en') : null) }}" id="name" placeholder="{{ __('Name') }}">
 
             @error('name.en')
                 <span class="invalid-feedback" role="alert">

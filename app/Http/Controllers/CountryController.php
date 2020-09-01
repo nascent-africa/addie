@@ -78,7 +78,7 @@ class CountryController extends Controller
 
         $country = Country::create($data);
 
-        flash()->success($country->name . ' was created successfully!');
+        flash()->success(Helpers::createdSuccess());
 
         return redirect()->route('countries.show', $country);
     }
@@ -139,7 +139,7 @@ class CountryController extends Controller
 
         $country->update($data);
 
-        flash()->success($country->name . ' was updated successfully!');
+        flash()->success(Helpers::updatedSuccess());
 
         return back();
     }
@@ -159,7 +159,7 @@ class CountryController extends Controller
 
         $country->delete();
 
-        flash()->success($model->name . ' deleted successfully!');
+        flash()->success(Helpers::deletedSuccess());
 
         return redirect()->route('countries.index');
     }
