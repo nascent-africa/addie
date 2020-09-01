@@ -36,8 +36,8 @@ abstract class Controller extends BaseController
      */
     protected function checkLocale($locale)
     {
-        if ($locale !== 'en' && $locale !== 'fr') {
-            throw new InvalidLocaleException("Locale '{$locale}' is not supported!");
+        if (! in_array($locale, ['en', 'fr'])) {
+            throw new InvalidLocaleException("Locale '{$locale}' is not supported!", 400);
         }
     }
 
